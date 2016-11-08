@@ -18,6 +18,14 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
     @IBOutlet weak var map: MKMapView!
     
     
+    @IBAction func checkIn(_ sender: Any) {
+        self.startSpinning()
+        self.createDBObjectTap(person : person! )
+        view.makeToast(message: "Konumunuz gönderildi" , duration: 1 , position: "center" as AnyObject )
+        self.stopSpinning()
+        
+        
+    }
     
     
     var ref : FIRDatabaseReference!
@@ -25,14 +33,6 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
     var  userCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var person : Person?
     
-    @IBAction func sendLocationFB(_ sender: Any) {
-        self.startSpinning()
-        self.createDBObjectTap(person : person! )
-        view.makeToast(message: "Konumunuz gönderildi" , duration: 1 , position: "center" as AnyObject )
-        self.stopSpinning()
-    }
-    
-
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -44,8 +44,8 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         if (CLLocationManager.locationServicesEnabled())
@@ -67,11 +67,11 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         
     }
     
-
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
@@ -103,8 +103,8 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         
         present(refreshAlert, animated: true, completion: nil)
         
-    }    
-
+    }
+    
     func startSpinning() {
         //activityIndicator.startAnimating()
     }
@@ -124,10 +124,21 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         let lat = coordinate.latitude
         let lon = coordinate.longitude
         
-
+        
         self.ref.child("users").child(uname).setValue(["latitude" : "\(lat)" , "longtitude" : "\(lon)", "date" : currentDate , "title" : title , "uname" : uname ])
-
+        
     }
     
+    
+    // MARK: Navigation
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let chatVc = segue.destination as! ChatVC
+        
+        chatVc.senderDisplayName = person?.getUserName()
+        chatVc.senderId = person?.getUserName()
+        
+    } */
 }
 

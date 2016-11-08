@@ -1,0 +1,6 @@
+framework module Pods_Check_in_Me {
+  umbrella header "Pods-Check-in Me-umbrella.h"
+
+  export *
+  module * { export * }
+}

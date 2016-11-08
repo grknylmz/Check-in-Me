@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58F9106431586EBA32E23D72 /* Pods_Check_in_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */; };
 		9F8206D81DCCA82E00C8B60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8206D71DCCA82E00C8B60A /* AppDelegate.swift */; };
 		9F8206DF1DCCA82E00C8B60A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8206DD1DCCA82E00C8B60A /* Main.storyboard */; };
 		9F8206E11DCCA82E00C8B60A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F8206E01DCCA82E00C8B60A /* Assets.xcassets */; };
@@ -17,15 +18,15 @@
 		9F8206F51DCCA94500C8B60A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8206F11DCCA94500C8B60A /* Person.swift */; };
 		9F8206F71DCCA95300C8B60A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F8206F61DCCA95300C8B60A /* GoogleService-Info.plist */; };
 		9F8206FB1DCCA98000C8B60A /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8206FA1DCCA98000C8B60A /* HRToast+UIView.swift */; };
-		9F9FB0621DCCDDA400C71B84 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9FB05E1DCCDDA400C71B84 /* GoogleToolboxForMac.framework */; };
-		9F9FB0631DCCDDA400C71B84 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9FB05F1DCCDDA400C71B84 /* GTMSessionFetcher.framework */; };
-		9F9FB0641DCCDDA400C71B84 /* JSQMessagesViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9FB0601DCCDDA400C71B84 /* JSQMessagesViewController.framework */; };
-		9F9FB0651DCCDDA400C71B84 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9FB0611DCCDDA400C71B84 /* JSQSystemSoundPlayer.framework */; };
+		9FBB7E401DCDDD540078472C /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBB7E3F1DCDDD540078472C /* Material.framework */; };
+		9FDA68A71DCDF0EB008C8069 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA68A61DCDF0EB008C8069 /* UIImage+Gif.swift */; };
+		9FDA68A91DCDF309008C8069 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA68A81DCDF309008C8069 /* TestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_in_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4631EFD9744A3BAC17C8787E /* Pods-Check-in Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check-in Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Check-in Me/Pods-Check-in Me.release.xcconfig"; sourceTree = "<group>"; };
+		9F24D6AE1DD13EDB005B1A02 /* Check-in Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Check-in Me.entitlements"; sourceTree = "<group>"; };
 		9F8206D41DCCA82E00C8B60A /* Check-in Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Check-in Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8206D71DCCA82E00C8B60A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F8206DE1DCCA82E00C8B60A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,10 +39,10 @@
 		9F8206F11DCCA94500C8B60A /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		9F8206F61DCCA95300C8B60A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Check-in Me/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F8206FA1DCCA98000C8B60A /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HRToast+UIView.swift"; path = "Toast-Swift-master/SwiftToastDemo/Toast/HRToast+UIView.swift"; sourceTree = "<group>"; };
-		9F9FB05E1DCCDDA400C71B84 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "Pods/../build/Release-iphoneos/GoogleToolboxForMac/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
-		9F9FB05F1DCCDDA400C71B84 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "Pods/../build/Release-iphoneos/GTMSessionFetcher/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
-		9F9FB0601DCCDDA400C71B84 /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQMessagesViewController.framework; path = "Pods/../build/Release-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework"; sourceTree = "<group>"; };
-		9F9FB0611DCCDDA400C71B84 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = "Pods/../build/Release-iphoneos/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"; sourceTree = "<group>"; };
+		9FBB7E3F1DCDDD540078472C /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = "../../Library/Developer/Xcode/DerivedData/Check-in_Me-cdrltbvlfrcxjsadqljtqyhqleki/Build/Products/Debug-iphonesimulator/Material/Material.framework"; sourceTree = "<group>"; };
+		9FDA68A51DCDF0EB008C8069 /* ChatChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		9FDA68A61DCDF0EB008C8069 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		9FDA68A81DCDF309008C8069 /* TestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		B6F1EC2DC4636A980DAF7E02 /* Pods-Check-in Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check-in Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Check-in Me/Pods-Check-in Me.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,10 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F9FB0621DCCDDA400C71B84 /* GoogleToolboxForMac.framework in Frameworks */,
-				9F9FB0631DCCDDA400C71B84 /* GTMSessionFetcher.framework in Frameworks */,
-				9F9FB0641DCCDDA400C71B84 /* JSQMessagesViewController.framework in Frameworks */,
-				9F9FB0651DCCDDA400C71B84 /* JSQSystemSoundPlayer.framework in Frameworks */,
+				9FBB7E401DCDDD540078472C /* Material.framework in Frameworks */,
+				58F9106431586EBA32E23D72 /* Pods_Check_in_Me.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,10 +62,7 @@
 		20F790D79FC61A09028BC50C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9F9FB05E1DCCDDA400C71B84 /* GoogleToolboxForMac.framework */,
-				9F9FB05F1DCCDDA400C71B84 /* GTMSessionFetcher.framework */,
-				9F9FB0601DCCDDA400C71B84 /* JSQMessagesViewController.framework */,
-				9F9FB0611DCCDDA400C71B84 /* JSQSystemSoundPlayer.framework */,
+				9FBB7E3F1DCDDD540078472C /* Material.framework */,
 				0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */,
 			);
 			name = Frameworks;
@@ -103,11 +99,13 @@
 		9F8206D61DCCA82E00C8B60A /* Check-in Me */ = {
 			isa = PBXGroup;
 			children = (
+				9F24D6AE1DD13EDB005B1A02 /* Check-in Me.entitlements */,
+				9FDA68A11DCDEF06008C8069 /* Layout */,
+				9FDA68A01DCDEEF5008C8069 /* Supporting Files */,
 				9F8206ED1DCCA92100C8B60A /* Controller */,
 				9F8206EC1DCCA91D00C8B60A /* View */,
 				9F8206EB1DCCA91600C8B60A /* Model */,
 				9F8206E01DCCA82E00C8B60A /* Assets.xcassets */,
-				9F8206E51DCCA82E00C8B60A /* Info.plist */,
 			);
 			path = "Check-in Me";
 			sourceTree = "<group>";
@@ -115,8 +113,6 @@
 		9F8206EB1DCCA91600C8B60A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F8206D71DCCA82E00C8B60A /* AppDelegate.swift */,
-				9F8206FA1DCCA98000C8B60A /* HRToast+UIView.swift */,
 				9F8206F11DCCA94500C8B60A /* Person.swift */,
 			);
 			name = Model;
@@ -125,8 +121,6 @@
 		9F8206EC1DCCA91D00C8B60A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9F8206DD1DCCA82E00C8B60A /* Main.storyboard */,
-				9F8206E21DCCA82E00C8B60A /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -137,8 +131,30 @@
 				9F8206EE1DCCA94500C8B60A /* ChatVC.swift */,
 				9F8206EF1DCCA94500C8B60A /* CheckInVC.swift */,
 				9F8206F01DCCA94500C8B60A /* ManagerVC.swift */,
+				9FDA68A81DCDF309008C8069 /* TestVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		9FDA68A01DCDEEF5008C8069 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FDA68A51DCDF0EB008C8069 /* ChatChat-Bridging-Header.h */,
+				9FDA68A61DCDF0EB008C8069 /* UIImage+Gif.swift */,
+				9F8206D71DCCA82E00C8B60A /* AppDelegate.swift */,
+				9F8206FA1DCCA98000C8B60A /* HRToast+UIView.swift */,
+				9F8206E51DCCA82E00C8B60A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FDA68A11DCDEF06008C8069 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				9F8206DD1DCCA82E00C8B60A /* Main.storyboard */,
+				9F8206E21DCCA82E00C8B60A /* LaunchScreen.storyboard */,
+			);
+			name = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +186,9 @@
 		9F8206CC1DCCA82D00C8B60A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					backbutton,
+				);
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Gurkan Yilmaz";
@@ -178,6 +197,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = JP8T8ZDVB3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -266,8 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FDA68A91DCDF309008C8069 /* TestVC.swift in Sources */,
 				9F8206F51DCCA94500C8B60A /* Person.swift in Sources */,
 				9F8206F31DCCA94500C8B60A /* CheckInVC.swift in Sources */,
+				9FDA68A71DCDF0EB008C8069 /* UIImage+Gif.swift in Sources */,
 				9F8206FB1DCCA98000C8B60A /* HRToast+UIView.swift in Sources */,
 				9F8206F21DCCA94500C8B60A /* ChatVC.swift in Sources */,
 				9F8206F41DCCA94500C8B60A /* ManagerVC.swift in Sources */,
@@ -394,7 +420,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B6F1EC2DC4636A980DAF7E02 /* Pods-Check-in Me.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Check-in Me/Check-in Me.entitlements";
 				DEVELOPMENT_TEAM = JP8T8ZDVB3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -415,7 +443,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4631EFD9744A3BAC17C8787E /* Pods-Check-in Me.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Check-in Me/Check-in Me.entitlements";
 				DEVELOPMENT_TEAM = JP8T8ZDVB3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

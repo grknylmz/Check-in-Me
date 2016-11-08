@@ -16,6 +16,7 @@ var personArray = [Person]()
 
 class ManagerVC: UIViewController {
     var ref: FIRDatabaseReference!
+
     
     @IBOutlet weak var mapView: MKMapView!
     

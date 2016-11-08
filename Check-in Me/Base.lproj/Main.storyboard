@@ -22,6 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEm-pI-JrQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8Eh-IU-cZ2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6O4-Ao-3LF">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
@@ -31,9 +39,9 @@
                                                 <action selector="onExit:" destination="9pv-A4-QxB" id="Xdg-fd-Hc3"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Çalışan" id="ANh-hx-XgI">
+                                        <barButtonItem key="rightBarButtonItem" title="Sohbet" id="ANh-hx-XgI">
                                             <connections>
-                                                <segue destination="geY-1c-oYV" kind="show" id="ZGD-1g-yc2"/>
+                                                <segue destination="qpD-7P-wj9" kind="show" id="0bu-sO-8vT"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -42,29 +50,45 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-eP-S3F">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdr-Bf-VlT">
-                                <rect key="frame" x="85" y="507" width="204" height="46"/>
-                                <state key="normal" image="button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTt-mi-pl8" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="78" y="546" width="218" height="30"/>
+                                <state key="normal" title="Konumumu Gönder">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Konumumu Gönder"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.043137254901960784" green="0.45882352941176469" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="sendLocationFB:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4cM-Jb-nbU"/>
+                                    <action selector="checkIn:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ICH-2P-Khk"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="QEm-pI-JrQ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="1Hb-GK-0CC"/>
                             <constraint firstItem="6O4-Ao-3LF" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="1qY-8y-z5E"/>
                             <constraint firstItem="Vj0-eP-S3F" firstAttribute="top" secondItem="6O4-Ao-3LF" secondAttribute="bottom" id="75t-vX-RD9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wdr-Bf-VlT" secondAttribute="trailing" constant="70" id="ITg-e8-C8N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mTt-mi-pl8" secondAttribute="trailing" constant="63" id="Dr4-e2-3Kw"/>
                             <constraint firstItem="Vj0-eP-S3F" firstAttribute="top" secondItem="6O4-Ao-3LF" secondAttribute="bottom" id="PR4-n9-krw"/>
+                            <constraint firstItem="mTt-mi-pl8" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="62" id="QvK-xp-Y42"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="mTt-mi-pl8" secondAttribute="bottom" constant="42" id="REA-fe-IUN"/>
                             <constraint firstItem="6O4-Ao-3LF" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="RW0-fk-GON"/>
                             <constraint firstItem="Vj0-eP-S3F" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="SGb-Co-vdB"/>
                             <constraint firstItem="Vj0-eP-S3F" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ZaG-Es-Zp3"/>
+                            <constraint firstAttribute="bottom" secondItem="QEm-pI-JrQ" secondAttribute="bottom" id="cfX-Vn-VR5"/>
                             <constraint firstAttribute="trailing" secondItem="Vj0-eP-S3F" secondAttribute="trailing" id="hKV-JB-l29"/>
+                            <constraint firstItem="mTt-mi-pl8" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="k3f-CN-OeI"/>
+                            <constraint firstItem="QEm-pI-JrQ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="kRk-fW-c2c"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Vj0-eP-S3F" secondAttribute="bottom" id="lb3-34-A1O"/>
                             <constraint firstAttribute="trailing" secondItem="6O4-Ao-3LF" secondAttribute="trailing" id="n4x-rW-qFh"/>
-                            <constraint firstItem="wdr-Bf-VlT" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="oae-hO-r0U"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="wdr-Bf-VlT" secondAttribute="bottom" constant="65" id="sbj-UK-aYr"/>
-                            <constraint firstItem="wdr-Bf-VlT" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="69" id="ycT-mz-diE"/>
+                            <constraint firstItem="QEm-pI-JrQ" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="sE4-Fj-mvg"/>
+                            <constraint firstAttribute="trailing" secondItem="QEm-pI-JrQ" secondAttribute="trailing" id="ys1-g5-kyO"/>
                             <constraint firstItem="6O4-Ao-3LF" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="zRW-cX-T7j"/>
                         </constraints>
                     </view>
@@ -77,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--ManagerVC-->
+        <!--Sohbet-->
         <scene sceneID="Dvf-Xz-Gff">
             <objects>
-                <viewController id="geY-1c-oYV" customClass="ManagerVC" customModule="Check_in_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="geY-1c-oYV" customClass="ChatVC" customModule="Check_in_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jwk-Te-B34"/>
                         <viewControllerLayoutGuide type="bottom" id="K5N-sL-iXD"/>
@@ -88,49 +112,21 @@
                     <view key="view" contentMode="scaleToFill" id="6Rz-Jk-1sm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzd-rG-T9d">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Çalışan Konum Bilgisi" id="qr9-qM-qAx">
-                                        <barButtonItem key="leftBarButtonItem" image="Return Filled-25" id="yy9-iG-vVr">
-                                            <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" id="sLw-XD-adc"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fXJ-rR-z3p">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                            </mapView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="top" secondItem="pzd-rG-T9d" secondAttribute="bottom" id="0Yr-ES-N9u"/>
-                            <constraint firstItem="pzd-rG-T9d" firstAttribute="leading" secondItem="6Rz-Jk-1sm" secondAttribute="leading" id="3LQ-ke-Nqr"/>
-                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="leading" secondItem="6Rz-Jk-1sm" secondAttribute="leading" id="GRC-yr-81e"/>
-                            <constraint firstItem="pzd-rG-T9d" firstAttribute="top" secondItem="Jwk-Te-B34" secondAttribute="bottom" id="GlG-oa-DvR"/>
-                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="centerX" secondItem="6Rz-Jk-1sm" secondAttribute="centerX" id="MAR-Xw-hEa"/>
-                            <constraint firstItem="K5N-sL-iXD" firstAttribute="top" secondItem="fXJ-rR-z3p" secondAttribute="bottom" id="Mw2-v7-f2L"/>
-                            <constraint firstItem="pzd-rG-T9d" firstAttribute="centerX" secondItem="6Rz-Jk-1sm" secondAttribute="centerX" id="U3Q-ZI-yNC"/>
-                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="top" secondItem="pzd-rG-T9d" secondAttribute="bottom" id="qny-eG-Ta4"/>
-                            <constraint firstAttribute="trailing" secondItem="fXJ-rR-z3p" secondAttribute="trailing" id="r1w-Ys-lTQ"/>
-                            <constraint firstAttribute="trailing" secondItem="pzd-rG-T9d" secondAttribute="trailing" id="rsA-E7-Da4"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Sohbet" id="Wr0-Vc-CA5"/>
                     <connections>
                         <outlet property="mapView" destination="fXJ-rR-z3p" id="eaR-Vv-Cpp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4D-bd-loP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597.5999999999999" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="2561" y="-321"/>
         </scene>
-        <!--Sohbet-->
+        <!--Konum-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="ChatVC" customModule="Check_in_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ManagerVC" customModule="Check_in_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -138,9 +134,35 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzd-rG-T9d">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Çalışan Konum Bilgisi" id="qr9-qM-qAx"/>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fXJ-rR-z3p">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="fXJ-rR-z3p" secondAttribute="bottom" id="8F8-tV-jjF"/>
+                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="H7w-Xa-Ta6"/>
+                            <constraint firstItem="pzd-rG-T9d" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="Od8-da-axP"/>
+                            <constraint firstAttribute="trailing" secondItem="fXJ-rR-z3p" secondAttribute="trailing" id="XoU-xB-yy9"/>
+                            <constraint firstItem="pzd-rG-T9d" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Z5J-vT-CEV"/>
+                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="top" secondItem="pzd-rG-T9d" secondAttribute="bottom" id="dZF-gj-Pkv"/>
+                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="top" secondItem="pzd-rG-T9d" secondAttribute="bottom" id="e8c-bt-DkW"/>
+                            <constraint firstItem="fXJ-rR-z3p" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="ohE-hq-0FC"/>
+                            <constraint firstItem="pzd-rG-T9d" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="uwN-MA-Upz"/>
+                            <constraint firstAttribute="trailing" secondItem="pzd-rG-T9d" secondAttribute="trailing" id="xS7-Ar-fVN"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sohbet" image="Speech Bubble-20" selectedImage="Speech Bubble Filled-20" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Konum" image="Speech Bubble-20" selectedImage="Speech Bubble Filled-20" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="mapView" destination="fXJ-rR-z3p" id="qGd-Tx-KTc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,20 +180,36 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="EZT-ds-oTt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3wy-gM-zGY">
+            <objects>
+                <navigationController id="qpD-7P-wj9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BFl-vW-zRY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="geY-1c-oYV" kind="relationship" relationship="rootViewController" id="PHQ-7B-cG7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcM-ZW-Jt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="-321"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Map Marker Filled-20" width="20" height="20"/>
         <image name="Map Marker-20" width="20" height="20"/>
-        <image name="Return Filled-25" width="25" height="25"/>
         <image name="Speech Bubble Filled-20" width="20" height="20"/>
         <image name="Speech Bubble-20" width="20" height="20"/>
-        <image name="button" width="204" height="46"/>
     </resources>
 </document>
