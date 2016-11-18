@@ -17,4 +17,6 @@ pod 'JSQMessagesViewController'
 pod 'Material', '~> 2.0'
 pod 'Material/Capture', '~> 2.0'
 pod 'Material/Photos', '~> 2.0'
+pod 'WKAwesomeMenu'
+pod 'SnapKit', '~> 3.0.2'
 end

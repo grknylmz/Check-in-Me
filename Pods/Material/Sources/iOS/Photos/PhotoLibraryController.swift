@@ -30,9 +30,27 @@
 
 import UIKit
 
+extension UIViewController {
+    /**
+     A convenience property that provides access to the PhotoLibraryController.
+     This is the recommended method of accessing the PhotoLibraryController
+     through child UIViewControllers.
+     */
+    public var photoLibraryController: PhotoLibraryController? {
+        var viewController: UIViewController? = self
+        while nil != viewController {
+            if viewController is PhotoLibraryController {
+                return viewController as? PhotoLibraryController
+            }
+            viewController = viewController?.parent
+        }
+        return nil
+    }
+}
+
 open class PhotoLibraryController: UIViewController {
     /// A reference to a PhotoLibrary.
-    open private(set) lazy var photoLibrary: PhotoLibrary = PhotoLibrary()
+    open fileprivate(set) var photoLibrary = PhotoLibrary()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +67,7 @@ open class PhotoLibraryController: UIViewController {
     open func prepare() {
         view.clipsToBounds = true
         view.backgroundColor = .white
-        view.contentScaleFactor = Device.scale
+        view.contentScaleFactor = Screen.scale
         preparePhotoLibrary()
     }
     

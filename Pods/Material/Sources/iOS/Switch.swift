@@ -159,14 +159,14 @@ open class Switch: UIControl {
 	}
 	
 	/// Track view reference.
-	open private(set) var track: UIView {
+	open fileprivate(set) var track: UIView {
 		didSet {
 			prepareTrack()
 		}
 	}
 	
 	/// Button view reference.
-	open private(set) var button: FabButton {
+	open fileprivate(set) var button: FabButton {
 		didSet {
 			prepareButton()
 		}
@@ -419,7 +419,7 @@ open class Switch: UIControl {
      when subclassing.
      */
     open func prepare() {
-        contentScaleFactor = Device.scale
+        contentScaleFactor = Screen.scale
         prepareTrack()
         prepareButton()
         prepareSwitchState()
