@@ -1,17 +1,17 @@
 //
 //  MenuItem.swift
-//  CMP10C
+//  
 //
-//  Created by Adrian Mateoaea on 29.01.2016.
-//  Copyright © 2016 CMP10C. All rights reserved.
+//  Created by Gurkan Yilmaz on 18.11.2016.
+//  Copyright © 2016. All rights reserved.
 //
 
 import UIKit
 
 struct MenuItems {
     
-    fileprivate let titles = ["Home", "Notifications", "Reviews", "Settings", "Help"]
-    fileprivate let icons  = [ Image.homeImage, Image.notifImage, Image.reviewsImage, Image.settingsImage, Image.helpImage ]
+    fileprivate let titles = ["Harita", "Görevler", "Takım", "Ayarlar", "Yardım" , "Çıkış" ]
+    fileprivate let icons  = [ Image.homeImage, Image.notifImage, Image.reviewsImage, Image.settingsImage, Image.helpImage , Image.exitImage  ]
     
     var count: Int {
         return self.titles.count

@@ -32,12 +32,14 @@ struct Image {
     static let reviewsImage   = UIImage(named: "ic_reviews")!
     static let settingsImage  = UIImage(named: "ic_settings")!
     static let helpImage      = UIImage(named: "ic_help")!
-
+    
     static let generalBG     = UIImage(named: "general_bg")!
     static let buttonBG      = UIImage(named: "button_bg")!
     
     static let logo          = UIImage(named: "logo")!
     static let shadow        = UIImage(named: "shadow")!
+    
+    static let exitImage     = UIImage(named : "exit" )!
     
 }
 

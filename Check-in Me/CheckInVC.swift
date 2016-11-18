@@ -96,7 +96,7 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         self.map.setRegion(region, animated: true)
         
     }
-    
+    /*
     @IBAction func onExit(_ sender: Any) {
         let refreshAlert = UIAlertController(title: "Uyarı", message: "Çıkmak istediğinize emin misiniz? ", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -110,7 +110,7 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         
         present(refreshAlert, animated: true, completion: nil)
         
-    }
+    } */
     
     
     func createDBObjectTap( person : Person ){

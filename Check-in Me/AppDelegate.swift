@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
         let rootNC = UINavigationController(rootViewController: rootVC)
 
-    
-        
         let options = WKAwesomeMenuOptions.defaultOptions()
         let awesomeMenu = WKAwesomeMenu(rootViewController: rootNC , menuViewController: menuVC, options: options)
 
