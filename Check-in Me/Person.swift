@@ -37,8 +37,6 @@ class Person : NSObject, MKAnnotation {
     }
     
     func setDate( date : Int ) -> Bool {
-        
-        
         self._date = date
         return true
     }

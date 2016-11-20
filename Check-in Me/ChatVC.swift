@@ -247,7 +247,6 @@ class ChatVC: JSQMessagesViewController  {
 extension ChatVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        
         picker.dismiss(animated: true, completion:nil)
         
         // 1
