@@ -14,56 +14,56 @@ class Task{
         get{
             return _taskName
             }
-        set{
-            _taskName = "Hello Task"
+        set(valueTask){
+            _taskName = valueTask
             }
     }
     var _taskTime: String? {
         get{
             return _taskTime
             }
-        set{
-            _taskTime = "21.11.2016"
+        set(valueTime){
+            _taskTime = valueTime
             }
     }
     var _taskDescription: String? {
         get{
             return _taskDescription
             }
-        set{
-            _taskDescription = "bu bir deneme taskıdır."
+        set(valueDescription){
+            _taskDescription = valueDescription
             }
     }
     var _createdBy: String? {
         get{
             return _createdBy
             }
-        set{
-            _createdBy = "yocoskun"
+        set(valueCreated){
+            _createdBy = valueCreated
             }
     }
     var _assignedTo: String? {
         get{
             return _assignedTo
             }
-        set{
-            _assignedTo = "guyilmaz"
+        set(valueAssigned){
+            _assignedTo = valueAssigned
             }
     }
     var _completed: Bool {
         get{
             return _completed
             }
-        set{
-            _completed = true
+        set(isCompleted){
+            _completed = isCompleted
             }
     }
     var _taskID: Int {
         get{
             return _taskID
             }
-        set{
-            _taskID = 1
+        set(valueID){
+            _taskID = valueID
             }
     }
     
