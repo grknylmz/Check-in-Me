@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479C794E1DE30D6A006C5976 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C794D1DE30D6A006C5976 /* Task.swift */; };
 		58F9106431586EBA32E23D72 /* Pods_Check_in_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */; };
 		9F0FCE2A1DDF7F2900C735A7 /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FCE291DDF7F2900C735A7 /* TaskVC.swift */; };
 		9F405C1E1DDF1EB0001D7ED8 /* MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F405C1A1DDF1EB0001D7ED8 /* MenuItems.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_in_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4631EFD9744A3BAC17C8787E /* Pods-Check-in Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check-in Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Check-in Me/Pods-Check-in Me.release.xcconfig"; sourceTree = "<group>"; };
+		479C794D1DE30D6A006C5976 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9F0FCE291DDF7F2900C735A7 /* TaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
 		9F24D6AE1DD13EDB005B1A02 /* Check-in Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Check-in Me.entitlements"; sourceTree = "<group>"; };
 		9F405C1A1DDF1EB0001D7ED8 /* MenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItems.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				9F8206F11DCCA94500C8B60A /* Person.swift */,
+				479C794D1DE30D6A006C5976 /* Task.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				9F8206FB1DCCA98000C8B60A /* HRToast+UIView.swift in Sources */,
 				9F8206F21DCCA94500C8B60A /* ChatVC.swift in Sources */,
 				9F405C1E1DDF1EB0001D7ED8 /* MenuItems.swift in Sources */,
+				479C794E1DE30D6A006C5976 /* Task.swift in Sources */,
 				9F405C201DDF1EB0001D7ED8 /* MenuTableViewController.swift in Sources */,
 				9F8206F41DCCA94500C8B60A /* ManagerVC.swift in Sources */,
 				9F8206D81DCCA82E00C8B60A /* AppDelegate.swift in Sources */,

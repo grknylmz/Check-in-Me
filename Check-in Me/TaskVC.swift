@@ -15,14 +15,13 @@ class TaskVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1)
         self.title = "Görevler"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named : "ic_menu"),
                                                                 style: UIBarButtonItemStyle.plain,
                                                                 target: self,
                                                                 action: #selector(self.menu))
 
-        
+  
         self.segmentedControl.layer.cornerRadius = 0
         self.segmentedControl.layer.borderWidth = 1.0
         self.segmentedControl.layer.borderColor = UIColor(red:0, green:0.479, blue:0.999, alpha:1).cgColor
