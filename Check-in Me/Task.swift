@@ -10,64 +10,15 @@ import Foundation
 
 class Task{
     
-    var _taskName: String? {
-        get{
-            return self._taskName
-            }
-        set(valueTask){
-            self._taskName = valueTask
-            }
-    }
-    var _taskTime: String? {
-        get{
-            return self._taskTime
-            }
-        set(valueTime){
-            self._taskTime = valueTime
-            }
-    }
-    var _taskDescription: String? {
-        get{
-            return self._taskDescription
-            }
-        set(valueDescription){
-            self._taskDescription = valueDescription
-            }
-    }
-    var _createdBy: String? {
-        get{
-            return self._createdBy
-            }
-        set(valueCreated){
-            self._createdBy = valueCreated
-            }
-    }
-    var _assignedTo: String? {
-        get{
-            return self._assignedTo
-            }
-        set(valueAssigned){
-            self._assignedTo = valueAssigned
-            }
-    }
-    var _completed: Bool {
-        get{
-            return self._completed
-            }
-        set(isCompleted){
-            self._completed = isCompleted
-            }
-    }
-    var _taskID: Int {
-        get{
-            return self._taskID
-            }
-        set(valueID){
-            self._taskID = valueID
-            }
-    }
+    var _taskName: String?
+    var _taskTime: String?
+    var _taskDescription: String?
+    var _createdBy: String?
+    var _assignedTo: String?
+    var _completed: Bool
+    var _taskID: Int
     
-   
+    
     
     init( taskName : String, taskTime: String , taskDescription: String,createdBy: String ,assignedTo: String, completed: Bool, taskID: Int ) {
         
@@ -82,6 +33,54 @@ class Task{
         
     }
     
+    func getTaskName()->String{
+        return self._taskName!
+    }
+    func setTaskName ( taskName : String ){
+        self._taskName = taskName
+    }
+    //----------------------------------------
+    func getTaskTime()->String{
+        return self._taskTime!
+    }
+    func setTaskTime ( taskTime : String ){
+        self._taskTime = taskTime
+    }
+    //----------------------------------------
+    func getTaskDescription()->String{
+        return self._taskDescription!
+    }
+    func setTaskDescription( taskDescription : String ){
+        self._taskDescription = taskDescription
+    }
+    //----------------------------------------
+    func getCreatedBy()->String{
+        return self._createdBy!
+    }
+    func setCreatedBy( createdBy : String ){
+        self._createdBy =  createdBy
+    }
+    //---------------------------------------
+    func getAssignedTo()->String{
+        return self._assignedTo!
+    }
+    func setAssignedTo( assignedTo : String ){
+        self._assignedTo = assignedTo
+    }
+    //-----------------------------------------
+    func getCompleted()->Bool{
+        return self._completed
+    }
+    func setCompleted( completed : Bool ){
+        self._completed = completed
+    }
+    //----------------------------------------
+    func getTaskID()->Int{
+        return self._taskID
+    }
+    func setTaskID( taskID: Int ){
+        self._taskID = taskID
+    }
     
     
 }
