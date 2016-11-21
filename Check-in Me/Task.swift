@@ -12,58 +12,58 @@ class Task{
     
     var _taskName: String? {
         get{
-            return _taskName
+            return self._taskName
             }
         set(valueTask){
-            _taskName = valueTask
+            self._taskName = valueTask
             }
     }
     var _taskTime: String? {
         get{
-            return _taskTime
+            return self._taskTime
             }
         set(valueTime){
-            _taskTime = valueTime
+            self._taskTime = valueTime
             }
     }
     var _taskDescription: String? {
         get{
-            return _taskDescription
+            return self._taskDescription
             }
         set(valueDescription){
-            _taskDescription = valueDescription
+            self._taskDescription = valueDescription
             }
     }
     var _createdBy: String? {
         get{
-            return _createdBy
+            return self._createdBy
             }
         set(valueCreated){
-            _createdBy = valueCreated
+            self._createdBy = valueCreated
             }
     }
     var _assignedTo: String? {
         get{
-            return _assignedTo
+            return self._assignedTo
             }
         set(valueAssigned){
-            _assignedTo = valueAssigned
+            self._assignedTo = valueAssigned
             }
     }
     var _completed: Bool {
         get{
-            return _completed
+            return self._completed
             }
         set(isCompleted){
-            _completed = isCompleted
+            self._completed = isCompleted
             }
     }
     var _taskID: Int {
         get{
-            return _taskID
+            return self._taskID
             }
         set(valueID){
-            _taskID = valueID
+            self._taskID = valueID
             }
     }
     
