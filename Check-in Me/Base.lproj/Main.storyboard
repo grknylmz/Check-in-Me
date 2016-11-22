@@ -125,6 +125,9 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="0aj-Ye-kt6" eventType="valueChanged" id="MJM-ng-XfT"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qf6-iQ-s67">
                                 <rect key="frame" x="0.0" y="93" width="375" height="574"/>
@@ -134,11 +137,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GxD-sx-cpN" id="Dr5-4j-fdU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ufH-hv-kbY">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -165,6 +168,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xzc-fD-7Nv"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="s0Z-9f-77U" id="2cP-J9-oMp"/>
                         <outlet property="tableView" destination="qf6-iQ-s67" id="mLb-ah-r87"/>
                     </connections>
                 </viewController>
@@ -210,7 +214,7 @@
             <objects>
                 <navigationController id="qpD-7P-wj9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BFl-vW-zRY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BFl-vW-zRY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -236,7 +240,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KJf-e8-vZa" id="jgu-qm-YgX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -257,7 +261,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H53-GR-Nqt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Harita" image="Map Marker-20" selectedImage="Map Marker Filled-20" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kMb-p3-9Sc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kMb-p3-9Sc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,7 +280,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="21d-t7-Rcr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Konum" image="Speech Bubble-20" selectedImage="Speech Bubble Filled-20" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eWC-M8-Gnl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eWC-M8-Gnl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -294,7 +298,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9fk-cC-YQd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8d4-u7-kgP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8d4-u7-kgP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

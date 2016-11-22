@@ -17,17 +17,20 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         // Drawing code
     }
     */
+    let textCellIdentifier = "LabelCell"
+    
+    var tasks = [ Task(taskName: "TEST1" , taskTime: "22111016") , Task(taskName: "TEST2" , taskTime: "22111016"),Task(taskName: "TEST3" , taskTime: "22111016") ]
+    
+     var doneTasks = [ Task(taskName: "TEST1Done" , taskTime: "22111016") , Task(taskName: "TEST2Done" , taskTime: "22111016"),Task(taskName: "TEST3Done" , taskTime: "22111016") ]
 
     @IBOutlet weak var tableView: UITableView!
     
-    let textCellIdentifier = "LabelCell"
-    
-    let fruits = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe", "Cherry",
-                       "Clementine", "Coconut", "Cranberry", "Fig", "Grape", "Grapefruit",
-                       "Kiwi fruit", "Lemon", "Lime", "Lychee", "Mandarine", "Mango",
-                       "Melon", "Nectarine", "Olive", "Orange", "Papaya", "Peach",
-                       "Pear", "Pineapple", "Raspberry", "Strawberry"]
-
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+   
+    @IBAction func segmentedControlAction(_ sender: Any) {
+        tableView.reloadData()
+    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,25 +39,66 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tableView.dataSource = self
     }
     
+    
+    
+    
+    
+    
+    
+    // MARK: Table Protocols
+    
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruits.count
+        if(segmentedControl.selectedSegmentIndex == 0)
+        {
+            
+            return tasks.count
+        }
+        else
+        {
+           return doneTasks.count
+        }
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath as IndexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = fruits[row]
         
-        return cell
+        if(segmentedControl.selectedSegmentIndex == 0)
+        {
+            
+            cell.textLabel?.text = tasks[row].getTaskName()
+            return cell
+        }
+        else
+        {
+            cell.textLabel?.text = doneTasks[row].getTaskName()
+            return cell
+        }
+        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
         let row = indexPath.row
-        print(fruits[row])
+        
+        if(segmentedControl.selectedSegmentIndex == 0)
+        {
+            
+           print(tasks[row].getTaskName())
+        }
+        else
+        {
+            print(doneTasks[row].getTaskName())
+        }
+        
     }
+    
+    
+
 
 }
