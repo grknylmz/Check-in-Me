@@ -19,9 +19,9 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     */
     let textCellIdentifier = "LabelCell"
     
-    var tasks = [ Task(taskName: "TEST1" , taskTime: "22111016") , Task(taskName: "TEST2" , taskTime: "22111016"),Task(taskName: "TEST3" , taskTime: "22111016") ]
+    var tasks = [ Task(taskName: "Test1" , taskTime: "22111016") , Task(taskName: "Test2" , taskTime: "22111016"),Task(taskName: "Test3" , taskTime: "22111016") ]
     
-     var doneTasks = [ Task(taskName: "TEST1Done" , taskTime: "22111016") , Task(taskName: "TEST2Done" , taskTime: "22111016"),Task(taskName: "TEST3Done" , taskTime: "22111016") ]
+     var doneTasks = [ Task(taskName: "Test1Done" , taskTime: "22111016") , Task(taskName: "Test2Done" , taskTime: "22111016"),Task(taskName: "Test3Done" , taskTime: "22111016") ]
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,9 +34,12 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.isEditing = true
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+       
     }
     
     
@@ -72,11 +75,13 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         {
             
             cell.textLabel?.text = tasks[row].getTaskName()
+            cell.imageView?.image = UIImage(named: tasks[row].getTaskName())
             return cell
         }
         else
         {
             cell.textLabel?.text = doneTasks[row].getTaskName()
+            cell.imageView?.image = UIImage(named: tasks[row].getTaskName())
             return cell
         }
         
@@ -99,6 +104,22 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     
+    // MARK: - Sorting
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.tasks[sourceIndexPath.row]
+        tasks.remove(at: sourceIndexPath.row)
+        tasks.insert(movedObject, at: destinationIndexPath.row)
+        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(tasks)")
+        // To check for correctness enable: self.tableView.reloadData()
+    }
 
 }
