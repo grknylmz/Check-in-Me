@@ -54,12 +54,12 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
-  - Material (2.3.12):
-    - Material/Core (= 2.3.12)
-  - Material/Capture (2.3.12):
+  - Material (2.3.13):
+    - Material/Core (= 2.3.13)
+  - Material/Capture (2.3.13):
     - Material/Core
-  - Material/Core (2.3.12)
-  - Material/Photos (2.3.12):
+  - Material/Core (2.3.13)
+  - Material/Photos (2.3.13):
     - Material/Core
   - SnapKit (3.0.2)
   - WKAwesomeMenu (2.0.0)
@@ -92,7 +92,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  Material: 98864e691ea39c07654de703104ea510fa80b8d9
+  Material: ff47744e650393831de894b7e4dfc43baa02ff1f
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   WKAwesomeMenu: 39d888f93705f63baadd4d7bda8513250c43b7ed
 

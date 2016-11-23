@@ -65,7 +65,7 @@ class MenuTableViewController: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let checkInVC = storyboard.instantiateViewController(withIdentifier: "CheckInVC") as! CheckInVC
         let mapVC = storyboard.instantiateViewController(withIdentifier: "ManagerVC") as! ManagerVC
-        let taskVC = storyboard.instantiateViewController(withIdentifier: "TaskVC") as! TaskVC
+        let taskVC = storyboard.instantiateViewController(withIdentifier: "TasksTableVC") as! TasksTableVC
         
         let taskNC = UINavigationController(rootViewController: taskVC)
         let checkInNC = UINavigationController(rootViewController: checkInVC)
