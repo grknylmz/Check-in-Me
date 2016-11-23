@@ -49,10 +49,10 @@ extension UIViewController {
     }
 }
 
-open class CaptureController: ToolbarController, CaptureDelegate {
+open class CaptureController: ToolbarController {
     /// A reference to the Capture instance.
     @IBInspectable
-    open private(set) lazy var capture: Capture = Capture()
+    open fileprivate(set) var capture = Capture()
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
@@ -93,7 +93,8 @@ open class CaptureController: ToolbarController, CaptureDelegate {
     /// Prepares capture.
     private func prepareCapture() {
         capture.delegate = self
-        capture.delegate = self
         capture.flashMode = .auto
     }
 }
+
+extension CaptureController: CaptureDelegate {}

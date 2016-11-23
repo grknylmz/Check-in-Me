@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EA8D5DDEC7BF8206848E49EDE7311D74'
+               BlueprintIdentifier = 'B2F239EB84F8E9C50638C958026F844D'
                BlueprintName = 'Material-io.cosmicmind.material.icons'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'io.cosmicmind.material.icons.bundle'>

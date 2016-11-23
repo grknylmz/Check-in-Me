@@ -62,10 +62,10 @@ public protocol SearchBarDelegate {
 
 open class SearchBar: Bar {
 	/// The UITextField for the searchBar.
-	open private(set) lazy var textField = UITextField()
+	open fileprivate(set) var textField = UITextField()
 	
 	/// Reference to the clearButton.
-	open private(set) var clearButton: IconButton!
+	open fileprivate(set) var clearButton: IconButton!
 	
     /// A reference to the delegate.
     open weak var delegate: SearchBarDelegate?
@@ -152,16 +152,6 @@ open class SearchBar: Bar {
 	}
 	
 	/**
-     A convenience initializer with parameter settings.
-     - Parameter leftViews: An Array of UIViews that go on the left side.
-     - Parameter rightViews: An Array of UIViews that go on the right side.
-     - Parameter centerViews: An Array of UIViews that go in the center.
-     */
-    public override init(leftViews: [UIView]? = nil, rightViews: [UIView]? = nil, centerViews: [UIView]? = nil) {
-        super.init(leftViews: leftViews, rightViews: rightViews, centerViews: centerViews)
-	}
-	
-	/**
      Prepares the view instance when intialized. When subclassing,
      it is recommended to override the prepare method
      to initialize property values and other setup operations.
@@ -204,7 +194,7 @@ open class SearchBar: Bar {
     
 	/// Prepares the textField.
 	private func prepareTextField() {
-		textField.contentScaleFactor = Device.scale
+		textField.contentScaleFactor = Screen.scale
 		textField.font = RobotoFont.regular(with: 17)
 		textField.backgroundColor = Color.clear
 		textField.clearButtonMode = .whileEditing

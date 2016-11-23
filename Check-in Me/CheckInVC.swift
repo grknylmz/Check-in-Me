@@ -55,9 +55,21 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         
         person = Person( title: "Gökhan Yılmaz" , coordinate: userCoordinate , uname : "gyilmaz" )
         
-        
+        self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1)
+        self.title = "Konum Bilgisi"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named : "ic_menu"),
+                                                                style: UIBarButtonItemStyle.plain,
+                                                                target: self,
+                                                                action: #selector(self.menu))
         //activityIndicator.isHidden = true
     }
+    
+    
+    
+    func menu() {
+        self.openSideMenu()
+    }
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +96,7 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         self.map.setRegion(region, animated: true)
         
     }
-    
+    /*
     @IBAction func onExit(_ sender: Any) {
         let refreshAlert = UIAlertController(title: "Uyarı", message: "Çıkmak istediğinize emin misiniz? ", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -98,7 +110,7 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         
         present(refreshAlert, animated: true, completion: nil)
         
-    }
+    } */
     
     
     func createDBObjectTap( person : Person ){

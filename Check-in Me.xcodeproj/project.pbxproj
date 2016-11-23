@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		58F9106431586EBA32E23D72 /* Pods_Check_in_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */; };
+		9F0FCE2A1DDF7F2900C735A7 /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FCE291DDF7F2900C735A7 /* TaskVC.swift */; };
+		9F405C1E1DDF1EB0001D7ED8 /* MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F405C1A1DDF1EB0001D7ED8 /* MenuItems.swift */; };
+		9F405C1F1DDF1EB0001D7ED8 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F405C1B1DDF1EB0001D7ED8 /* MenuTableViewCell.swift */; };
+		9F405C201DDF1EB0001D7ED8 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F405C1C1DDF1EB0001D7ED8 /* MenuTableViewController.swift */; };
+		9F40C47F1DDF3560001C4B0B /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F40C47E1DDF3560001C4B0B /* AppStyles.swift */; };
 		9F8206D81DCCA82E00C8B60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8206D71DCCA82E00C8B60A /* AppDelegate.swift */; };
 		9F8206DF1DCCA82E00C8B60A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8206DD1DCCA82E00C8B60A /* Main.storyboard */; };
 		9F8206E11DCCA82E00C8B60A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F8206E01DCCA82E00C8B60A /* Assets.xcassets */; };
@@ -18,15 +23,20 @@
 		9F8206F51DCCA94500C8B60A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8206F11DCCA94500C8B60A /* Person.swift */; };
 		9F8206F71DCCA95300C8B60A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F8206F61DCCA95300C8B60A /* GoogleService-Info.plist */; };
 		9F8206FB1DCCA98000C8B60A /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8206FA1DCCA98000C8B60A /* HRToast+UIView.swift */; };
+		9FB1D3231DE0CE35007C160A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB1D3221DE0CE35007C160A /* MapKit.framework */; };
 		9FBB7E401DCDDD540078472C /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBB7E3F1DCDDD540078472C /* Material.framework */; };
 		9FDA68A71DCDF0EB008C8069 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA68A61DCDF0EB008C8069 /* UIImage+Gif.swift */; };
-		9FDA68A91DCDF309008C8069 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA68A81DCDF309008C8069 /* TestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_in_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4631EFD9744A3BAC17C8787E /* Pods-Check-in Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check-in Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Check-in Me/Pods-Check-in Me.release.xcconfig"; sourceTree = "<group>"; };
+		9F0FCE291DDF7F2900C735A7 /* TaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
 		9F24D6AE1DD13EDB005B1A02 /* Check-in Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Check-in Me.entitlements"; sourceTree = "<group>"; };
+		9F405C1A1DDF1EB0001D7ED8 /* MenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItems.swift; sourceTree = "<group>"; };
+		9F405C1B1DDF1EB0001D7ED8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		9F405C1C1DDF1EB0001D7ED8 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		9F40C47E1DDF3560001C4B0B /* AppStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
 		9F8206D41DCCA82E00C8B60A /* Check-in Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Check-in Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8206D71DCCA82E00C8B60A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F8206DE1DCCA82E00C8B60A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,10 +49,10 @@
 		9F8206F11DCCA94500C8B60A /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		9F8206F61DCCA95300C8B60A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Check-in Me/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F8206FA1DCCA98000C8B60A /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HRToast+UIView.swift"; path = "Toast-Swift-master/SwiftToastDemo/Toast/HRToast+UIView.swift"; sourceTree = "<group>"; };
+		9FB1D3221DE0CE35007C160A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9FBB7E3F1DCDDD540078472C /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = "../../Library/Developer/Xcode/DerivedData/Check-in_Me-cdrltbvlfrcxjsadqljtqyhqleki/Build/Products/Debug-iphonesimulator/Material/Material.framework"; sourceTree = "<group>"; };
 		9FDA68A51DCDF0EB008C8069 /* ChatChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FDA68A61DCDF0EB008C8069 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
-		9FDA68A81DCDF309008C8069 /* TestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		B6F1EC2DC4636A980DAF7E02 /* Pods-Check-in Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check-in Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Check-in Me/Pods-Check-in Me.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FBB7E401DCDDD540078472C /* Material.framework in Frameworks */,
+				9FB1D3231DE0CE35007C160A /* MapKit.framework in Frameworks */,
 				58F9106431586EBA32E23D72 /* Pods_Check_in_Me.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +73,7 @@
 		20F790D79FC61A09028BC50C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FB1D3221DE0CE35007C160A /* MapKit.framework */,
 				9FBB7E3F1DCDDD540078472C /* Material.framework */,
 				0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */,
 			);
@@ -75,6 +87,16 @@
 				4631EFD9744A3BAC17C8787E /* Pods-Check-in Me.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F405C181DDF1EA0001D7ED8 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9F405C1A1DDF1EB0001D7ED8 /* MenuItems.swift */,
+				9F405C1B1DDF1EB0001D7ED8 /* MenuTableViewCell.swift */,
+				9F405C1C1DDF1EB0001D7ED8 /* MenuTableViewController.swift */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		9F8206CB1DCCA82D00C8B60A = {
@@ -128,10 +150,11 @@
 		9F8206ED1DCCA92100C8B60A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9F405C181DDF1EA0001D7ED8 /* Menu */,
 				9F8206EE1DCCA94500C8B60A /* ChatVC.swift */,
 				9F8206EF1DCCA94500C8B60A /* CheckInVC.swift */,
 				9F8206F01DCCA94500C8B60A /* ManagerVC.swift */,
-				9FDA68A81DCDF309008C8069 /* TestVC.swift */,
+				9F0FCE291DDF7F2900C735A7 /* TaskVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -139,6 +162,7 @@
 		9FDA68A01DCDEEF5008C8069 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F40C47E1DDF3560001C4B0B /* AppStyles.swift */,
 				9FDA68A51DCDF0EB008C8069 /* ChatChat-Bridging-Header.h */,
 				9FDA68A61DCDF0EB008C8069 /* UIImage+Gif.swift */,
 				9F8206D71DCCA82E00C8B60A /* AppDelegate.swift */,
@@ -200,6 +224,9 @@
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
 							};
 						};
 					};
@@ -290,14 +317,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FDA68A91DCDF309008C8069 /* TestVC.swift in Sources */,
 				9F8206F51DCCA94500C8B60A /* Person.swift in Sources */,
 				9F8206F31DCCA94500C8B60A /* CheckInVC.swift in Sources */,
+				9F0FCE2A1DDF7F2900C735A7 /* TaskVC.swift in Sources */,
 				9FDA68A71DCDF0EB008C8069 /* UIImage+Gif.swift in Sources */,
+				9F40C47F1DDF3560001C4B0B /* AppStyles.swift in Sources */,
 				9F8206FB1DCCA98000C8B60A /* HRToast+UIView.swift in Sources */,
 				9F8206F21DCCA94500C8B60A /* ChatVC.swift in Sources */,
+				9F405C1E1DDF1EB0001D7ED8 /* MenuItems.swift in Sources */,
+				9F405C201DDF1EB0001D7ED8 /* MenuTableViewController.swift in Sources */,
 				9F8206F41DCCA94500C8B60A /* ManagerVC.swift in Sources */,
 				9F8206D81DCCA82E00C8B60A /* AppDelegate.swift in Sources */,
+				9F405C1F1DDF1EB0001D7ED8 /* MenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

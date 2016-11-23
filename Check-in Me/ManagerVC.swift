@@ -61,6 +61,14 @@ class ManagerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1)
+        self.title = "Çalışan Konum Bilgisi"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named : "ic_menu"),
+                                                                style: UIBarButtonItemStyle.plain,
+                                                                target: self,
+                                                                action: #selector(self.menu))
+        
+        
         // Do any additional setup after loading the view.
         let center = CLLocationCoordinate2D(latitude: 41 , longitude: 29)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.6, longitudeDelta: 0.6))
@@ -83,6 +91,11 @@ class ManagerVC: UIViewController {
             mapView.addAnnotation(personArray[i])
         }
     }
+    
+    func menu() {
+        self.openSideMenu()
+    }
+    
     
 }
 
