@@ -39,14 +39,22 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tableView.delegate = self
         tableView.dataSource = self
         
+        // MARK: Menu Button
+
+        self.title = "Görevler"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named : "ic_menu"),
+                                                                style: UIBarButtonItemStyle.plain,
+                                                                target: self,
+                                                                action: #selector(self.menu))
        
     }
     
     
+    func menu() {
+        self.openSideMenu()
+    }
     
-    
-    
-    
+
     
     // MARK: Table Protocols
     
