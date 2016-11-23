@@ -54,12 +54,12 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
-  - Material (2.3.1):
-    - Material/Core (= 2.3.1)
-  - Material/Capture (2.3.1):
+  - Material (2.3.7):
+    - Material/Core (= 2.3.7)
+  - Material/Capture (2.3.7):
     - Material/Core
-  - Material/Core (2.3.1)
-  - Material/Photos (2.3.1):
+  - Material/Core (2.3.7)
+  - Material/Photos (2.3.7):
     - Material/Core
 
 DEPENDENCIES:
@@ -88,8 +88,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  Material: 8532fe2dfbd20aa9375fbc9706fdc585c23e5ff0
+  Material: b0aa466c72931f6dc3854a059e086455f4103a28
 
-PODFILE CHECKSUM: 770e78add6fc2e223f00d935942ae3c6e8a593ef
+PODFILE CHECKSUM: 58671ac2ba40bef559bf9d78f068fe3836d9a9fe
 
 COCOAPODS: 1.1.1

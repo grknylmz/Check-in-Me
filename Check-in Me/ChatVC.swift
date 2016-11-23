@@ -13,7 +13,7 @@ import Firebase
 import JSQMessagesViewController
 
 
-class ChatVC: JSQMessagesViewController {
+class ChatVC: JSQMessagesViewController  {
     private let imageURLNotSetKey = "NOTSET"
     var ref: FIRDatabaseReference?
     var messages = [JSQMessage]()
@@ -23,30 +23,26 @@ class ChatVC: JSQMessagesViewController {
     private var newMessageRefHandle: FIRDatabaseHandle?
     let defaults = UserDefaults.standard
     lazy var storageRef: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://check-in-me.appspot.com")
-
+    
     
     override func loadView() {
         super.loadView()
-        /* let topConstraint = view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant : 8)
-         let margins = view.layoutMarginsGuide
-         
-         let leadingConstraints = view.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
-         let trailingConstraints = view.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-         topConstraint.isActive = true
-         leadingConstraints.isActive = true
-         trailingConstraints.isActive = true */
+
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupBackButton()
-        self.senderDisplayName = "guyilmaz"
-        self.senderId = "guyilmaz"
+        print(senderId + senderDisplayName)
+        if senderDisplayName == nil {
+            self.senderDisplayName = "Gürkan"
+            self.senderId = "guyilmaz"
+            
+        }
 
         
         ref = FIRDatabase.database().reference()
-
+        
         title = "Sohbet"
         
         // No avatars
@@ -57,19 +53,9 @@ class ChatVC: JSQMessagesViewController {
         
 
         
-        /**
-         *  Example on showing or removing Avatars based on user settings.
-         */
-
-        
-        // Show Button to simulate incoming messages
-        // self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(asset), style: .plain, target: self, action: #selector(done))
-        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title : "Geri" , style: .plain , target: self, action: #selector(done) )
-        
-        // This is a beta feature that mostly works but to make things more stable it is diabled.
+
         collectionView?.collectionViewLayout.springinessEnabled = false
-        
         automaticallyScrollsToMostRecentMessage = true
         
         self.collectionView?.reloadData()
@@ -185,7 +171,7 @@ class ChatVC: JSQMessagesViewController {
     }
     
     
-
+    
     
     private func observeTyping() {
         //let typingIndicatorRef = messageRef.child("typingIndicator")
@@ -200,33 +186,25 @@ class ChatVC: JSQMessagesViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout, heightForMessageBubbleTopLabelAt indexPath: IndexPath) -> CGFloat {
-        
-        /**
-         *  Example on showing or removing senderDisplayName based on user settings.
-         *  This logic should be consistent with what you return from `attributedTextForCellTopLabelAtIndexPath:`
-         */
 
-        
-        /**
-         *  iOS7-style sender name labels
-         */
-        let currentMessage = self.messages[indexPath.item]
-        
-        if currentMessage.senderId == self.senderId {
-            return 0.0
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+        let msg: JSQMessage = self.messages[indexPath.item]
+        if (msg.senderId != self.senderId) {
+            
+            return NSAttributedString(string: msg.senderDisplayName)
         }
-        
-        if indexPath.item - 1 > 0 {
-            let previousMessage = self.messages[indexPath.item - 1]
-            if previousMessage.senderId == currentMessage.senderId {
-                return 0.0
-            }
+        else {
+            return NSAttributedString(string: senderDisplayName)
         }
-        
-        return kJSQMessagesCollectionViewCellLabelHeightDefault;
     }
+    
+
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
+        return 15
+    }
+    
+    
+    
     func sendPhotoMessage() -> String? {
         let itemRef = messageRef.childByAutoId()
         
@@ -259,6 +237,9 @@ class ChatVC: JSQMessagesViewController {
         
         present(picker, animated: true, completion:nil)
     }
+    
+    
+
     
 }
 
@@ -304,4 +285,5 @@ extension ChatVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion:nil)
     }
+    
 }

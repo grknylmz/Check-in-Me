@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.io>.
+ * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -103,7 +103,7 @@ open class PageTabBarController: RootController {
     /// Reference to the PageTabBar.
     open private(set) lazy var pageTabBar: PageTabBar = PageTabBar()
     
-    /// A boolean that indicates whether bounds is enabled.
+    /// A boolean that indicates whether bounce is enabled.
     open var isBounceEnabled: Bool {
         didSet {
             scrollView?.bounces = isBounceEnabled

@@ -13,25 +13,22 @@ import Firebase
 import Foundation
 
 
+
 class CheckInVC: UIViewController , CLLocationManagerDelegate {
-    
-    @IBOutlet weak var map: MKMapView!
-    
-    
-    @IBAction func checkIn(_ sender: Any) {
-        self.startSpinning()
-        self.createDBObjectTap(person : person! )
-        view.makeToast(message: "Konumunuz gönderildi" , duration: 1 , position: "center" as AnyObject )
-        self.stopSpinning()
-        
-        
-    }
-    
     
     var ref : FIRDatabaseReference!
     var locationManager: CLLocationManager!
     var  userCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var person : Person?
+    
+    @IBOutlet weak var map: MKMapView!
+    
+    @IBAction func checkIn(_ sender: Any) {
+        
+        self.createDBObjectTap(person : person! )
+        view.makeToast(message: "Konumunuz gönderildi" , duration: 1 , position: "center" as AnyObject )
+        
+    }
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,7 +41,6 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -60,7 +56,6 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         person = Person( title: "Gökhan Yılmaz" , coordinate: userCoordinate , uname : "gyilmaz" )
         
         
-        self.stopSpinning()
         //activityIndicator.isHidden = true
     }
     
@@ -105,14 +100,6 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         
     }
     
-    func startSpinning() {
-        //activityIndicator.startAnimating()
-    }
-    
-    func stopSpinning() {
-        //activityIndicator.stopAnimating()
-    }
-    
     
     func createDBObjectTap( person : Person ){
         let uname = person.getUserName()
@@ -131,14 +118,14 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
     
     
     // MARK: Navigation
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        let destinationNavigationController = segue.destination as! UINavigationController
+        let targetController = destinationNavigationController.topViewController as! ChatVC
         
-        let chatVc = segue.destination as! ChatVC
+        targetController.senderId = person?.getUserName()
+        targetController.senderDisplayName = person?.getTitle()
         
-        chatVc.senderDisplayName = person?.getUserName()
-        chatVc.senderId = person?.getUserName()
-        
-    } */
+    }
 }
 
