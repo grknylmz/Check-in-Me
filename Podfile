@@ -19,4 +19,5 @@ pod 'Material/Capture', '~> 2.0'
 pod 'Material/Photos', '~> 2.0'
 pod 'WKAwesomeMenu'
 pod 'SnapKit', '~> 3.0.2'
+pod 'Eureka', '~> 2.0.0-beta.1'
 end
