@@ -46,6 +46,11 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                                                                 style: UIBarButtonItemStyle.plain,
                                                                 target: self,
                                                                 action: #selector(self.menu))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ekle",
+                                                                 style: UIBarButtonItemStyle.plain ,
+                                                                 target: self ,
+                                                                 action: #selector(self.goToAdd) )
        
     }
     
@@ -54,6 +59,12 @@ class TasksTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         self.openSideMenu()
     }
     
+    
+    func goToAdd(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddTaskVC") as! AddTaskVC
+        self.present(vc, animated: true, completion: nil)
+    }
 
     
     // MARK: Table Protocols
