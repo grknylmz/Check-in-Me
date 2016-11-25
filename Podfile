@@ -20,4 +20,5 @@ pod 'Eureka', '~> 2.0.0-beta.1'
 pod 'Material', '~> 2.0'
 pod 'Material/Capture', '~> 2.0'
 pod 'Material/Photos', '~> 2.0'
+pod 'SwiftySettings'
 end

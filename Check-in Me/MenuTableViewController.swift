@@ -66,10 +66,12 @@ class MenuTableViewController: UITableViewController {
         let checkInVC = storyboard.instantiateViewController(withIdentifier: "CheckInVC") as! CheckInVC
         let mapVC = storyboard.instantiateViewController(withIdentifier: "ManagerVC") as! ManagerVC
         let taskVC = storyboard.instantiateViewController(withIdentifier: "TasksTableVC") as! TasksTableVC
+        let settingVC = storyboard.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
         
         let taskNC = UINavigationController(rootViewController: taskVC)
         let checkInNC = UINavigationController(rootViewController: checkInVC)
         let mapNC = UINavigationController(rootViewController: mapVC)
+        let setNC = UINavigationController(rootViewController: settingVC)
 
         
         selectedIndex = indexPath.row
@@ -85,7 +87,7 @@ class MenuTableViewController: UITableViewController {
             self.changeViewController(mapNC)
             break
         case 3:
-            //self.changeViewController(configNC)
+            self.changeViewController(setNC)
             break
         case 4:
             //self.changeViewController(helpNC)
