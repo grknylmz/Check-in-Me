@@ -122,15 +122,15 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="s0Z-9f-77U">
                                 <rect key="frame" x="0.0" y="64" width="375" height="29"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Açık"/>
+                                    <segment title="Tamamlanan"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlAction:" destination="0aj-Ye-kt6" eventType="valueChanged" id="MJM-ng-XfT"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qf6-iQ-s67">
-                                <rect key="frame" x="0.0" y="93" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="ufH-hv-kbY" style="IBUITableViewCellStyleDefault" id="GxD-sx-cpN">
@@ -162,7 +162,7 @@
                             <constraint firstItem="qf6-iQ-s67" firstAttribute="leading" secondItem="I9k-Ja-ltk" secondAttribute="leading" id="fQ7-nE-UEq"/>
                             <constraint firstItem="s0Z-9f-77U" firstAttribute="top" secondItem="LTm-UJ-xMm" secondAttribute="bottom" id="gqw-AE-GMr"/>
                             <constraint firstAttribute="trailing" secondItem="qf6-iQ-s67" secondAttribute="trailing" id="qhJ-4M-aBW"/>
-                            <constraint firstItem="qf6-iQ-s67" firstAttribute="top" secondItem="s0Z-9f-77U" secondAttribute="bottom" constant="1" id="tJp-Zq-4nF"/>
+                            <constraint firstItem="qf6-iQ-s67" firstAttribute="top" secondItem="s0Z-9f-77U" secondAttribute="bottom" constant="8" id="tJp-Zq-4nF"/>
                             <constraint firstItem="qf6-iQ-s67" firstAttribute="centerX" secondItem="I9k-Ja-ltk" secondAttribute="centerX" id="z8t-Si-nsJ"/>
                         </constraints>
                     </view>
@@ -174,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9XE-pd-gKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3500" y="376"/>
+            <point key="canvasLocation" x="3500" y="375.56221889055473"/>
         </scene>
         <!--Add TaskVC-->
         <scene sceneID="p93-AW-Z5K">
@@ -189,11 +189,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="N3B-yf-Cc1"/>
+                    <navigationItem key="navigationItem" id="6WR-W8-scZ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="ck2-nQ-IZQ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7x-sH-y1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3500" y="1136"/>
+            <point key="canvasLocation" x="4439.1999999999998" y="1135.6821589205399"/>
         </scene>
         <!--ManagerVC-->
         <scene sceneID="wg7-f3-ORb">
@@ -233,7 +235,7 @@
             <objects>
                 <navigationController id="qpD-7P-wj9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BFl-vW-zRY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BFl-vW-zRY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -299,7 +301,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="21d-t7-Rcr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Konum" image="Speech Bubble-20" selectedImage="Speech Bubble Filled-20" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eWC-M8-Gnl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eWC-M8-Gnl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -317,7 +319,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9fk-cC-YQd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8d4-u7-kgP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8d4-u7-kgP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -331,22 +333,22 @@
             <point key="canvasLocation" x="2607" y="376"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="p6c-kh-9t6">
+        <scene sceneID="lM2-FR-aA3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d9N-tU-Q3S" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5gW-dj-sCd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KC3-em-eMD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="27H-in-Tyo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3iv-jg-Dth" kind="relationship" relationship="rootViewController" id="rU3-KB-NPf"/>
+                        <segue destination="3iv-jg-Dth" kind="relationship" relationship="rootViewController" id="eUR-P9-sCX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G2E-YV-xun" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCU-x9-oYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2607" y="1136"/>
+            <point key="canvasLocation" x="3500" y="1135.6821589205399"/>
         </scene>
     </scenes>
     <resources>
