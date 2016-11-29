@@ -91,7 +91,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Material/Material.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftySettings/SwiftySettings.framework"
   install_framework "$BUILT_PRODUCTS_DIR/WKAwesomeMenu/WKAwesomeMenu.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -102,6 +101,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Material/Material.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftySettings/SwiftySettings.framework"
   install_framework "$BUILT_PRODUCTS_DIR/WKAwesomeMenu/WKAwesomeMenu.framework"
 fi

@@ -63,7 +63,6 @@ PODS:
   - Material/Photos (2.3.18):
     - Material/Core
   - SnapKit (3.0.2)
-  - SwiftySettings (1.0.0)
   - WKAwesomeMenu (2.0.0)
 
 DEPENDENCIES:
@@ -78,7 +77,6 @@ DEPENDENCIES:
   - Material/Capture (~> 2.0)
   - Material/Photos (~> 2.0)
   - SnapKit (~> 3.0.2)
-  - SwiftySettings
   - WKAwesomeMenu
 
 SPEC CHECKSUMS:
@@ -99,9 +97,8 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Material: 2f2a997c9a0de40b116308e19fa9e1675af7f0b5
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
-  SwiftySettings: fa9615f188c5e66561c5291e3a7271b3a4da3fda
   WKAwesomeMenu: 39d888f93705f63baadd4d7bda8513250c43b7ed
 
-PODFILE CHECKSUM: 4781d1e14be6b7c9f6fb8aad305f2e455a1060a3
+PODFILE CHECKSUM: 204c6838ff2d9a8bc4f5559029e11aa19ea41dd9
 
 COCOAPODS: 1.1.1

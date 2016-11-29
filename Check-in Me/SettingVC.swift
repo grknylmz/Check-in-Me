@@ -9,15 +9,9 @@
 import UIKit
 import Foundation
 
-class SettingVC: UIViewController {
+class SettingVC: UITableViewController {
+ 
     
-    var person : Person?
-    
-    let textCellIdentifier = "TableCell"
-    
-    @IBOutlet weak var profileImage: UIImageView!
-    
-    @IBOutlet weak var personName: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
         
