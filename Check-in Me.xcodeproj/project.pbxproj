@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		477EC7971DE39A4A00E3BAB7 /* TasksTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477EC7961DE39A4A00E3BAB7 /* TasksTableVC.swift */; };
+		4781833E1DEF17C5000D401A /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4781833D1DEF17C5000D401A /* HeaderCell.swift */; };
 		4791B4531DE8409A0092D8C4 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791B4521DE8409A0092D8C4 /* SettingVC.swift */; };
 		479C794E1DE30D6A006C5976 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C794D1DE30D6A006C5976 /* Task.swift */; };
+		47A63EBA1DEDC13A00967312 /* GeneralVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A63EB91DEDC13A00967312 /* GeneralVC.swift */; };
 		58F9106431586EBA32E23D72 /* Pods_Check_in_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */; };
 		9F0FCE2A1DDF7F2900C735A7 /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FCE291DDF7F2900C735A7 /* TaskVC.swift */; };
 		9F405C1E1DDF1EB0001D7ED8 /* MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F405C1A1DDF1EB0001D7ED8 /* MenuItems.swift */; };
@@ -36,8 +38,10 @@
 		0F4765CE7696F945A177EC11 /* Pods_Check_in_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_in_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4631EFD9744A3BAC17C8787E /* Pods-Check-in Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check-in Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Check-in Me/Pods-Check-in Me.release.xcconfig"; sourceTree = "<group>"; };
 		477EC7961DE39A4A00E3BAB7 /* TasksTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableVC.swift; sourceTree = "<group>"; };
+		4781833D1DEF17C5000D401A /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		4791B4521DE8409A0092D8C4 /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		479C794D1DE30D6A006C5976 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		47A63EB91DEDC13A00967312 /* GeneralVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralVC.swift; sourceTree = "<group>"; };
 		9F0FCE291DDF7F2900C735A7 /* TaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
 		9F24D6AE1DD13EDB005B1A02 /* Check-in Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Check-in Me.entitlements"; sourceTree = "<group>"; };
 		9F405C1A1DDF1EB0001D7ED8 /* MenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItems.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				477EC7961DE39A4A00E3BAB7 /* TasksTableVC.swift */,
 				9F7415021DE6FC7200AED698 /* AddTaskVC.swift */,
 				4791B4521DE8409A0092D8C4 /* SettingVC.swift */,
+				47A63EB91DEDC13A00967312 /* GeneralVC.swift */,
+				4781833D1DEF17C5000D401A /* HeaderCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 				4791B4531DE8409A0092D8C4 /* SettingVC.swift in Sources */,
 				9F8206F31DCCA94500C8B60A /* CheckInVC.swift in Sources */,
 				9F0FCE2A1DDF7F2900C735A7 /* TaskVC.swift in Sources */,
+				4781833E1DEF17C5000D401A /* HeaderCell.swift in Sources */,
 				9FDA68A71DCDF0EB008C8069 /* UIImage+Gif.swift in Sources */,
 				477EC7971DE39A4A00E3BAB7 /* TasksTableVC.swift in Sources */,
 				9F40C47F1DDF3560001C4B0B /* AppStyles.swift in Sources */,
@@ -340,6 +347,7 @@
 				9F7415031DE6FC7200AED698 /* AddTaskVC.swift in Sources */,
 				9F8206F21DCCA94500C8B60A /* ChatVC.swift in Sources */,
 				9F405C1E1DDF1EB0001D7ED8 /* MenuItems.swift in Sources */,
+				47A63EBA1DEDC13A00967312 /* GeneralVC.swift in Sources */,
 				479C794E1DE30D6A006C5976 /* Task.swift in Sources */,
 				9F405C201DDF1EB0001D7ED8 /* MenuTableViewController.swift in Sources */,
 				9F8206F41DCCA94500C8B60A /* ManagerVC.swift in Sources */,
