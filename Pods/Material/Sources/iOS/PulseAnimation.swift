@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,90 +32,140 @@ import UIKit
 
 @objc(PulseAnimation)
 public enum PulseAnimation: Int {
-	case none
-	case center
-	case centerWithBacking
-	case centerRadialBeyondBounds
+    case none
+    case center
+    case centerWithBacking
+    case centerRadialBeyondBounds
     case radialBeyondBounds
-	case backing
-	case point
-	case pointWithBacking
+    case backing
+    case point
+    case pointWithBacking
 }
 
-internal extension Motion {
-	/**
-     Triggers the expanding animation.
-     - Parameter layer: Container CALayer.
-     - Parameter visualLayer: A CAShapeLayer.
-     - Parameter point: A point to pulse from.
-     - Parameter width: Container width.
-     - Parameter height: Container height.
-     - Parameter duration: Animation duration.
-     - Parameter pulse: A Pulse instance.
+public protocol Pulseable {
+    /// A reference to the PulseAnimation.
+    var pulseAnimation: PulseAnimation { get set }
+    
+    /// A UIColor.
+    var pulseColor: UIColor { get set }
+    
+    /// The opcaity value for the pulse animation.
+    var pulseOpacity: CGFloat { get set }
+}
+
+internal protocol PulseableLayer {
+    /// A reference to the pulse layer.
+    var pulseLayer: CALayer? { get }
+}
+
+public struct Pulse {
+    /// A UIView that is Pulseable.
+    fileprivate weak var pulseView: UIView?
+    
+    /// The layer the pulse layers are added to.
+    internal weak var pulseLayer: CALayer?
+    
+    /// Pulse layers.
+    fileprivate var layers = [CAShapeLayer]()
+    
+    /// A reference to the PulseAnimation.
+    public var animation = PulseAnimation.pointWithBacking
+    
+    /// A UIColor.
+    public var color = Color.grey.base
+    
+    /// The opcaity value for the pulse animation.
+    public var opacity: CGFloat = 0.18
+
+    /**
+     An initializer that takes a given view and pulse layer.
+     - Parameter pulseView: An optional UIView.
+     - Parameter pulseLayer: An optional CALayer.
      */
-	internal static func pulseExpandAnimation(layer: CALayer, visualLayer: CALayer, point: CGPoint, width: CGFloat, height: CGFloat, pulse: inout Pulse) {
-        guard .none != pulse.animation else {
+    internal init(pulseView: UIView?, pulseLayer: CALayer?) {
+        self.pulseView = pulseView
+        self.pulseLayer = pulseLayer
+    }
+    
+    /**
+     Triggers the expanding animation.
+     - Parameter point: A point to pulse from.
+     */
+    public mutating func expand(point: CGPoint) {
+        guard let view = pulseView else {
             return
         }
         
-        let n = .center == pulse.animation ? width < height ? width : height : width < height ? height : width
+        guard let layer = pulseLayer else {
+            return
+        }
+        
+        guard .none != animation else {
+            return
+        }
         
         let bLayer = CAShapeLayer()
         let pLayer = CAShapeLayer()
         
         bLayer.addSublayer(pLayer)
-        pulse.layers.insert(bLayer, at: 0)
-        visualLayer.addSublayer(bLayer)
+        layer.addSublayer(bLayer)
         bLayer.zPosition = 0
         pLayer.zPosition = 0
         
-        visualLayer.masksToBounds = !(.centerRadialBeyondBounds == pulse.animation || .radialBeyondBounds == pulse.animation)
+        layers.insert(bLayer, at: 0)
         
-        Motion.disable(animations: { [visualLayer = visualLayer, pulse = pulse] in
-            bLayer.frame = visualLayer.bounds
+        layer.masksToBounds = !(.centerRadialBeyondBounds == animation || .radialBeyondBounds == animation)
+ 
+        let w = view.bounds.width
+        let h = view.bounds.height
+        
+        Motion.disable({ [
+            n = .center == animation ? w < h ? w : h : w < h ? h : w,
+            bounds = layer.bounds,
+            animation = animation,
+            color = color,
+            opacity = opacity
+            ] in
+            
+            bLayer.frame = bounds
             pLayer.bounds = CGRect(x: 0, y: 0, width: n, height: n)
             
-            switch pulse.animation {
+            switch animation {
             case .center, .centerWithBacking, .centerRadialBeyondBounds:
-                pLayer.position = CGPoint(x: width / 2, y: height / 2)
+                pLayer.position = CGPoint(x: w / 2, y: h / 2)
             default:
                 pLayer.position = point
             }
             
             pLayer.cornerRadius = n / 2
-            pLayer.backgroundColor = pulse.color.withAlphaComponent(pulse.opacity).cgColor
+            pLayer.backgroundColor = color.withAlphaComponent(opacity).cgColor
             pLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(scaleX: 0, y: 0))
         })
         
         bLayer.setValue(false, forKey: "animated")
         
-        let duration: CFTimeInterval = .center == pulse.animation ? 0.16125 : 0.325
+        let duration: CFTimeInterval = .center == animation ? 0.16125 : 0.325
         
-        switch pulse.animation {
+        switch animation {
         case .centerWithBacking, .backing, .pointWithBacking:
-            bLayer.add(Motion.backgroundColor(color: pulse.color.withAlphaComponent(pulse.opacity / 2), duration: duration), forKey: nil)
+            bLayer.motion(.backgroundColor(color.withAlphaComponent(opacity / 2)), .duration(duration))
         default:break
         }
         
-        switch pulse.animation {
+        switch animation {
         case .center, .centerWithBacking, .centerRadialBeyondBounds, .radialBeyondBounds, .point, .pointWithBacking:
-            pLayer.add(Motion.scale(by: 1, duration: duration), forKey: nil)
+            pLayer.motion(.scale(1), .duration(duration))
         default:break
         }
         
-        Motion.delay(time: duration) {
+        Motion.delay(duration) {
             bLayer.setValue(true, forKey: "animated")
         }
 	}
 	
-	/**
-     Triggers the contracting animation.
-     - Parameter layer: Container CALayer.
-     - Parameter visualLayer: A CAShapeLayer.
-     - Parameter pulse: A Pulse instance.
-     */
-	internal static func pulseContractAnimation(layer: CALayer, visualLayer: CALayer, pulse: inout Pulse) {
-        guard let bLayer = pulse.layers.popLast() else {
+	/// Triggers the contracting animation.
+    public mutating func contract() {
+        guard let bLayer = layers.popLast() else {
             return
         }
         
@@ -123,29 +173,26 @@ internal extension Motion {
             return
         }
         
-        Motion.delay(time: animated ? 0 : 0.15) { [pulse = pulse] in
+        Motion.delay(animated ? 0 : 0.15) { [animation = animation, color = color] in
             guard let pLayer = bLayer.sublayers?.first as? CAShapeLayer else {
                 return
             }
             
             let duration = 0.325
             
-            switch pulse.animation {
+            switch animation {
             case .centerWithBacking, .backing, .pointWithBacking:
-                bLayer.add(Motion.backgroundColor(color: pulse.color.withAlphaComponent(0), duration: duration), forKey: nil)
+                bLayer.motion(.backgroundColor(color.withAlphaComponent(0)), .duration(duration))
             default:break
             }
             
-            switch pulse.animation {
+            switch animation {
             case .center, .centerWithBacking, .centerRadialBeyondBounds, .radialBeyondBounds, .point, .pointWithBacking:
-                pLayer.add(Motion.animate(group: [
-                    Motion.scale(by: .center == pulse.animation ? 1 : 1.325),
-                    Motion.backgroundColor(color: pulse.color.withAlphaComponent(0))
-                ], duration: duration), forKey: nil)
+                pLayer.motion(.scale(.center == animation ? 1 : 1.325), .backgroundColor(color.withAlphaComponent(0)))
             default:break
             }
             
-            Motion.delay(time: duration) {
+            Motion.delay(duration) {
                 pLayer.removeFromSuperlayer()
                 bLayer.removeFromSuperlayer()
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,17 +30,22 @@
 
 import UIKit
 
-open class Button: UIButton, Pulseable {
+open class Button: UIButton, Pulseable, PulseableLayer {
     /**
      A CAShapeLayer used to manage elements that would be affected by
      the clipToBounds property of the backing layer. For example, this
      allows the dropshadow effect on the backing layer, while clipping
      the image to a desired shape within the visualLayer.
      */
-	open fileprivate(set) var visualLayer = CAShapeLayer()
+	open let visualLayer = CAShapeLayer()
 
     /// A Pulse reference.
-    open fileprivate(set) var pulse: Pulse!
+    internal var pulse: Pulse!
+    
+    /// A reference to the pulse layer.
+    internal var pulseLayer: CALayer? {
+        return pulse.pulseLayer
+    }
     
     /// PulseAnimation value.
     open var pulseAnimation: PulseAnimation {
@@ -104,6 +109,16 @@ open class Button: UIButton, Pulseable {
         didSet {
             setTitle(title, for: .normal)
             setTitle(title, for: .highlighted)
+            
+            guard nil != title else {
+                return
+            }
+            
+            guard nil == titleColor else {
+                return
+            }
+            
+            titleColor = Color.blue.base
         }
     }
     
@@ -133,6 +148,7 @@ open class Button: UIButton, Pulseable {
      */
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
+        tintColor = Color.blue.base
 		prepare()
 	}
 	
@@ -163,14 +179,10 @@ open class Button: UIButton, Pulseable {
         prepare()
     }
 	
-    open override func layoutSublayers(of layer: CALayer) {
-        super.layoutSublayers(of: layer)
-        layoutShape()
-        layoutVisualLayer()
-    }
-    
     open override func layoutSubviews() {
         super.layoutSubviews()
+        layoutShape()
+        layoutVisualLayer()
         layoutShadowPath()
     }
 	
@@ -180,14 +192,9 @@ open class Button: UIButton, Pulseable {
      from the center.
      */
     open func pulse(point: CGPoint? = nil) {
-        let p = nil == point ? CGPoint(x: CGFloat(width / 2), y: CGFloat(height / 2)) : point!
-        
-        pulse.expandAnimation(point: p)
-        Motion.delay(time: 0.35) { [weak self] in
-            guard let s = self else {
-                return
-            }
-            s.pulse.contractAnimation()
+        pulse.expand(point: point ?? center)
+        Motion.delay(0.35) { [weak self] in
+            self?.pulse.contract()
         }
     }
     
@@ -199,7 +206,7 @@ open class Button: UIButton, Pulseable {
      */
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        pulse.expandAnimation(point: layer.convert(touches.first!.location(in: self), from: layer))
+        pulse.expand(point: layer.convert(touches.first!.location(in: self), from: layer))
     }
     
     /**
@@ -210,7 +217,7 @@ open class Button: UIButton, Pulseable {
      */
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        pulse.contractAnimation()
+        pulse.contract()
     }
     
     /**
@@ -221,7 +228,7 @@ open class Button: UIButton, Pulseable {
      */
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        pulse.contractAnimation()
+        pulse.contract()
     }
     
     open func bringImageViewToFront() {

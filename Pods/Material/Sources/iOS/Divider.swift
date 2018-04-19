@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -104,6 +104,15 @@ public struct Divider {
         self.thickness = thickness
     }
     
+    /**
+     Hides the divier line.
+     */
+    internal var isHidden = false {
+        didSet {
+            line?.isHidden = isHidden
+        }
+    }
+    
     /// Lays out the divider.
     public func reload() {
         guard let l = line, let v = view else {
@@ -126,7 +135,7 @@ public struct Divider {
 }
 
 /// A memory reference to the Divider instance.
-private var DividerKey: UInt8 = 0
+fileprivate var DividerKey: UInt8 = 0
 
 extension UIView {
     /// TabBarItem reference.
@@ -169,6 +178,17 @@ extension UIView {
         }
         set(value) {
             divider.color = value
+        }
+    }
+    
+    /// Divider visibility.
+    @IBInspectable
+    open var isDividerHidden: Bool {
+        get {
+            return divider.isHidden
+        }
+        set(value) {
+            divider.isHidden = value
         }
     }
     

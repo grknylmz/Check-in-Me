@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -204,13 +204,13 @@ public struct Grid {
             }
         }
         
-        guard 0 < canvas.width && 0 < canvas.height else {
-            return
-        }
-        
         let count = views.count
         
         guard 0 < count else {
+            return
+        }
+        
+        guard 0 < canvas.width && 0 < canvas.height else {
             return
         }
         
@@ -266,9 +266,8 @@ public struct Grid {
 }
 
 /// A memory reference to the Grid instance for UIView extensions.
-private var GridKey: UInt8 = 0
+fileprivate var GridKey: UInt8 = 0
 
-/// Grid extension for UIView.
 extension UIView {
     /// Grid reference.
     public var grid: Grid {

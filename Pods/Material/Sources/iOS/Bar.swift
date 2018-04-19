@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,7 +32,7 @@ import UIKit
 
 @objc(ContentViewAlignment)
 public enum ContentViewAlignment: Int {
-    case any
+    case full
     case center
 }
 
@@ -47,7 +47,7 @@ open class Bar: View {
     }
     
     /// Should center the contentView.
-    open var contentViewAlignment = ContentViewAlignment.any {
+    open var contentViewAlignment = ContentViewAlignment.full {
         didSet {
             layoutSubviews()
         }
@@ -75,9 +75,12 @@ open class Bar: View {
     }
     
     /// A preset wrapper around interimSpace.
-    open var interimSpacePreset = InterimSpacePreset.none {
-        didSet {
-            interimSpace = InterimSpacePresetToValue(preset: interimSpacePreset)
+    open var interimSpacePreset: InterimSpacePreset {
+        get {
+            return grid.interimSpacePreset
+        }
+        set(value) {
+            grid.interimSpacePreset = value
         }
     }
     
@@ -102,7 +105,7 @@ open class Bar: View {
     }
     
     /// ContentView that holds the any desired subviews.
-    open fileprivate(set) lazy var contentView = UIView()
+    open let contentView = UIView()
     
     /// Left side UIViews.
     open var leftViews: [UIView] {
@@ -177,6 +180,10 @@ open class Bar: View {
     open override func layoutSubviews() {
         super.layoutSubviews()
         guard willLayout else {
+            return
+        }
+        
+        guard !grid.deferred else {
             return
         }
         

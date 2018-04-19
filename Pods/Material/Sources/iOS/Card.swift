@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,13 +31,8 @@
 import UIKit
 
 open class Card: PulseView {
-    /// Will layout the view.
-    open var willLayout: Bool {
-        return 0 < width && nil != superview
-    }
-    
     /// A container view for subviews.
-    open fileprivate(set) var container = UIView()
+    open let container = UIView()
     
     @IBInspectable
     open override var cornerRadiusPreset: CornerRadiusPreset {
@@ -182,12 +177,7 @@ open class Card: PulseView {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        guard willLayout else {
-            return
-        }
-        
         container.width = width
-        
         reload()
     }
     
@@ -235,15 +225,15 @@ open class Card: PulseView {
      */
     @discardableResult
     open func prepare(view: UIView, with insets: EdgeInsets, from top: CGFloat) -> CGFloat {
-        let t = insets.top + top
+        let y = insets.top + top
         
-        view.y = t
+        view.y = y
         view.x = insets.left
         
         let w = container.width - insets.left - insets.right
         var h = view.height
         
-        if 0 == h {
+        if 0 == h || nil != view as? UILabel {
             (view as? UILabel)?.sizeToFit()
             h = view.sizeThatFits(CGSize(width: w, height: CGFloat.greatestFiniteMagnitude)).height
         }
@@ -251,7 +241,7 @@ open class Card: PulseView {
         view.width = w
         view.height = h
         
-        return t + h + insets.bottom
+        return y + h + insets.bottom
     }
     
     /**
@@ -265,9 +255,11 @@ open class Card: PulseView {
         self.contentView = contentView
         self.bottomBar = bottomBar
     }
-    
+}
+
+extension Card {
     /// Prepares the container.
-    private func prepareContainer() {
+    fileprivate func prepareContainer() {
         container.clipsToBounds = true
         addSubview(container)
     }

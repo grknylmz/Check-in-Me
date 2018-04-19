@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -61,10 +61,13 @@ open class CollectionView: UICollectionView {
 	}
 	
 	/// A preset wrapper around interimSpace.
-	open var interimSpacePreset = InterimSpacePreset.none {
-		didSet {
-            interimSpace = InterimSpacePresetToValue(preset: interimSpacePreset)
-		}
+    open var interimSpacePreset: InterimSpacePreset {
+        get {
+            return (collectionViewLayout as? CollectionViewLayout)!.interimSpacePreset
+        }
+        set(value) {
+            (collectionViewLayout as? CollectionViewLayout)!.interimSpacePreset = value
+        }
 	}
 	
 	/// Spacing between items.
@@ -120,7 +123,6 @@ open class CollectionView: UICollectionView {
      */
 	open func prepare() {
 		contentScaleFactor = Screen.scale
-		backgroundColor = .clear
-		contentEdgeInsets = .zero
+		backgroundColor = .white
     }
 }

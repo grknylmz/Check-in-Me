@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -106,6 +106,12 @@ open class NavigationController: UINavigationController {
         v.layoutNavigationItem(item: item)
 	}
     
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        navigationBar.setNeedsLayout()
+        navigationBar.layoutIfNeeded()
+    }
+    
 	/**
      Prepares the view instance when intialized. When subclassing,
      it is recommended to override the prepare method
@@ -115,6 +121,7 @@ open class NavigationController: UINavigationController {
      */
 	open func prepare() {
         navigationBar.heightPreset = .normal
+        navigationBar.width = view.width
         
         view.clipsToBounds = true
 		view.backgroundColor = .white

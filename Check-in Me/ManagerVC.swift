@@ -15,7 +15,7 @@ import MapKit
 var personArray = [Person]()
 
 class ManagerVC: UIViewController {
-    var ref: FIRDatabaseReference!
+    var ref: DatabaseReference!
 
     
     @IBOutlet weak var mapView: MKMapView!
@@ -79,7 +79,7 @@ class ManagerVC: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        ref = FIRDatabase.database().reference()
+        ref = Database.database().reference()
         
         self.getData()
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,7 @@ open class NavigationBar: UINavigationBar {
     }
     
     open override var intrinsicContentSize: CGSize {
-        return CGSize(width: Screen.width, height: height)
+        return CGSize(width: width, height: height)
     }
 	
 	/// A preset wrapper around contentEdgeInsets.
@@ -98,9 +98,12 @@ open class NavigationBar: UINavigationBar {
 	/// A property that accesses the backing layer's background
 	@IBInspectable
     open override var backgroundColor: UIColor? {
-		didSet {
-			barTintColor = backgroundColor
-		}
+        get {
+            return barTintColor
+        }
+        set(value) {
+            barTintColor = value
+        }
 	}
 	
 	/**
@@ -132,13 +135,9 @@ open class NavigationBar: UINavigationBar {
 		return intrinsicContentSize
 	}
     
-    open override func layoutSublayers(of layer: CALayer) {
-        super.layoutSublayers(of: layer)
-        layoutShape()
-    }
-	
 	open override func layoutSubviews() {
 		super.layoutSubviews()
+        layoutShape()
         layoutShadowPath()
 		
         if let v = topItem {
@@ -297,8 +296,8 @@ open class NavigationBar: UINavigationBar {
         contentEdgeInsetsPreset = .square1
         contentScaleFactor = Screen.scale
 		backButtonImage = Icon.cm.arrowBack
-        let image = UIImage.image(with: .clear, size: CGSize(width: 1, height: 1))
-		shadowImage = image
+        let image = UIImage()
+        shadowImage = image
 		setBackgroundImage(image, for: .default)
 		backgroundColor = .white
 	}

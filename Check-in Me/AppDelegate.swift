@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRApp.configure()
+        FirebaseApp.configure()
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let rootVC = storyboard.instantiateViewController(withIdentifier: "CheckInVC") as! CheckInVC

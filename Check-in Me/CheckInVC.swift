@@ -16,7 +16,7 @@ import Foundation
 
 class CheckInVC: UIViewController , CLLocationManagerDelegate {
     
-    var ref : FIRDatabaseReference!
+    var ref : DatabaseReference!
     var locationManager: CLLocationManager!
     var  userCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var person : Person?
@@ -35,7 +35,7 @@ class CheckInVC: UIViewController , CLLocationManagerDelegate {
         
         //initialize Firebase
         
-        ref = FIRDatabase.database().reference()
+        ref = Database.database().reference()
     }
     
     

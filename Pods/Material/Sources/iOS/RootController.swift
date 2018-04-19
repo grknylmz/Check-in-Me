@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,26 +31,6 @@
 import UIKit
 
 open class RootController: UIViewController {
-	/// Device status bar style.
-	open var statusBarStyle: UIStatusBarStyle {
-		get {
-			return Application.statusBarStyle
-		}
-		set(value) {
-			Application.statusBarStyle = value
-		}
-	}
-    
-    /// Device visibility state.
-    open var isStatusBarHidden: Bool {
-        get {
-            return Application.isStatusBarHidden
-        }
-        set(value) {
-            Application.isStatusBarHidden = value
-        }
-    }
-	
 	/**
      A Boolean property used to enable and disable interactivity
      with the rootViewController.
@@ -126,7 +106,7 @@ open class RootController: UIViewController {
 	open func transition(to viewController: UIViewController, duration: TimeInterval = 0.5, options: UIViewAnimationOptions = [], animations: (() -> Void)? = nil, completion: ((Bool) -> Void)? = nil) {
 		rootViewController.willMove(toParentViewController: nil)
 		addChildViewController(viewController)
-		viewController.view.frame = rootViewController.view.bounds
+		viewController.view.frame = rootViewController.view.frame
         transition(from: rootViewController,
             to: viewController,
 			duration: duration,
@@ -191,6 +171,7 @@ extension RootController {
         addChildViewController(v)
         container.addSubview(v.view)
         v.didMove(toParentViewController: self)
+        v.view.frame = container.bounds
         v.view.clipsToBounds = true
         v.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         v.view.contentScaleFactor = Screen.scale

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,8 +31,8 @@
 import UIKit
 
 /// A memory reference to the NavigationItem instance.
-private var NavigationItemKey: UInt8 = 0
-private var NavigationItemContext: UInt8 = 0
+fileprivate var NavigationItemKey: UInt8 = 0
+fileprivate var NavigationItemContext: UInt8 = 0
 
 public class NavigationItem: NSObject {
     /// Should center the contentView.
@@ -93,7 +93,7 @@ public class NavigationItem: NSObject {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
             return
         }
-        contentViewAlignment = .center == titleLabel.textAlignment ? .center : .any
+        contentViewAlignment = .center == titleLabel.textAlignment ? .center : .full
     }
     
     deinit {
@@ -145,7 +145,12 @@ extension UINavigationItem {
     
     /// Should center the contentView.
     public var contentViewAlignment: ContentViewAlignment {
-        return navigationItem.contentViewAlignment
+        get {
+            return navigationItem.contentViewAlignment
+        }
+        set(value) {
+            navigationItem.contentViewAlignment = value
+        }
     }
 	
     /// Content View.

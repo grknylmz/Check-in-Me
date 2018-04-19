@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,17 +31,22 @@
 import UIKit
 
 @objc(CollectionReusableView)
-open class CollectionReusableView: UICollectionReusableView, Pulseable {
+open class CollectionReusableView: UICollectionReusableView, Pulseable, PulseableLayer {
     /**
      A CAShapeLayer used to manage elements that would be affected by
      the clipToBounds property of the backing layer. For example, this
      allows the dropshadow effect on the backing layer, while clipping
      the image to a desired shape within the visualLayer.
      */
-    open fileprivate(set) var visualLayer = CAShapeLayer()
+    open let visualLayer = CAShapeLayer()
     
     /// A Pulse reference.
-    open fileprivate(set) var pulse: Pulse!
+    internal var pulse: Pulse!
+    
+    /// A reference to the pulse layer.
+    internal var pulseLayer: CALayer? {
+        return pulse.pulseLayer
+    }
     
     /// PulseAnimation value.
     open var pulseAnimation: PulseAnimation {
@@ -93,7 +98,8 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      much greater flexibility than the contentsGravity property in
      terms of how the image is cropped and stretched.
      */
-	@IBInspectable open var contentsRect: CGRect {
+	@IBInspectable
+    open var contentsRect: CGRect {
 		get {
 			return visualLayer.contentsRect
 		}
@@ -106,7 +112,8 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      A CGRect that defines a stretchable region inside the visualLayer
      with a fixed border around the edge.
      */
-	@IBInspectable open var contentsCenter: CGRect {
+	@IBInspectable
+    open var contentsCenter: CGRect {
 		get {
 			return visualLayer.contentsCenter
 		}
@@ -120,7 +127,8 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      dimensions of the visualLayer's contents property and the size
      of the view. By default, this value is set to the Screen.scale.
      */
-	@IBInspectable open var contentsScale: CGFloat {
+	@IBInspectable
+    open var contentsScale: CGFloat {
 		get {
 			return visualLayer.contentsScale
 		}
@@ -137,7 +145,8 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
 	}
 	
 	/// Determines how content should be aligned within the visualLayer's bounds.
-	@IBInspectable open var contentsGravity: String {
+	@IBInspectable
+    open var contentsGravity: String {
 		get {
 			return visualLayer.contentsGravity
 		}
@@ -157,7 +166,8 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
 	}
 	
 	/// A reference to EdgeInsets.
-	@IBInspectable open var contentEdgeInsets: UIEdgeInsets {
+	@IBInspectable
+    open var contentEdgeInsets: UIEdgeInsets {
 		get {
 			return grid.contentEdgeInsets
 		}
@@ -167,14 +177,18 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
 	}
 	
 	/// A preset wrapper around interimSpace.
-	open var interimSpacePreset = InterimSpacePreset.none {
-		didSet {
-            interimSpace = InterimSpacePresetToValue(preset: interimSpacePreset)
-		}
-	}
+    open var interimSpacePreset: InterimSpacePreset {
+        get {
+            return grid.interimSpacePreset
+        }
+        set(value) {
+            grid.interimSpacePreset = value
+        }
+    }
 	
 	/// A wrapper around grid.interimSpace.
-	@IBInspectable open var interimSpace: InterimSpace {
+	@IBInspectable
+    open var interimSpace: InterimSpace {
 		get {
 			return grid.interimSpace
 		}
@@ -184,7 +198,8 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
 	}
 	
 	/// A property that accesses the backing layer's background
-	@IBInspectable open override var backgroundColor: UIColor? {
+	@IBInspectable
+    open override var backgroundColor: UIColor? {
 		didSet {
 			layer.backgroundColor = backgroundColor?.cgColor
 		}
@@ -217,15 +232,11 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
 		self.init(frame: .zero)
 	}
 	
-	open override func layoutSublayers(of layer: CALayer) {
-		super.layoutSublayers(of: layer)
-        layoutShape()
-        layoutVisualLayer()
-	}
-	
 	open override func layoutSubviews() {
 		super.layoutSubviews()
-		layoutShadowPath()
+        layoutShape()
+        layoutVisualLayer()
+        layoutShadowPath()
 	}
 	
     /**
@@ -234,14 +245,9 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      from the center.
      */
     open func pulse(point: CGPoint? = nil) {
-        let p = nil == point ? CGPoint(x: CGFloat(width / 2), y: CGFloat(height / 2)) : point!
-        
-        pulse.expandAnimation(point: p)
-        Motion.delay(time: 0.35) { [weak self] in
-            guard let s = self else {
-                return
-            }
-            s.pulse.contractAnimation()
+        pulse.expand(point: point ?? center)
+        Motion.delay(0.35) { [weak self] in
+            self?.pulse.contract()
         }
     }
     
@@ -253,7 +259,7 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      */
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        pulse.expandAnimation(point: layer.convert(touches.first!.location(in: self), from: layer))
+        pulse.expand(point: layer.convert(touches.first!.location(in: self), from: layer))
     }
     
     /**
@@ -264,7 +270,7 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      */
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        pulse.contractAnimation()
+        pulse.contract()
     }
     
     /**
@@ -275,7 +281,7 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      */
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        pulse.contractAnimation()
+        pulse.contract()
     }
 	
 	/**
@@ -287,7 +293,6 @@ open class CollectionReusableView: UICollectionReusableView, Pulseable {
      */
 	open func prepare() {
 		contentScaleFactor = Screen.scale
-		pulseAnimation = .none
 		prepareVisualLayer()
         preparePulse()
     }
@@ -297,6 +302,7 @@ extension CollectionReusableView {
     /// Prepares the pulse motion.
     fileprivate func preparePulse() {
         pulse = Pulse(pulseView: self, pulseLayer: visualLayer)
+        pulseAnimation = .none
     }
     
     /// Prepares the visualLayer property.

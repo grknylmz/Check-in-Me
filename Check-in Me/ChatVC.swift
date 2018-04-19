@@ -15,14 +15,14 @@ import JSQMessagesViewController
 
 class ChatVC: JSQMessagesViewController  {
     private let imageURLNotSetKey = "NOTSET"
-    var ref: FIRDatabaseReference?
+    var ref: DatabaseReference?
     var messages = [JSQMessage]()
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
-    private lazy var messageRef: FIRDatabaseReference = self.ref!.child("channel")
-    private var newMessageRefHandle: FIRDatabaseHandle?
+    private lazy var messageRef: DatabaseReference = self.ref!.child("channel")
+    private var newMessageRefHandle: DatabaseHandle?
     let defaults = UserDefaults.standard
-    lazy var storageRef: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://check-in-me.appspot.com")
+    lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://check-in-me.appspot.com")
     
     
     override func loadView() {
@@ -41,7 +41,7 @@ class ChatVC: JSQMessagesViewController  {
         }
 
         
-        ref = FIRDatabase.database().reference()
+        ref = Database.database().reference()
         
         title = "Sohbet"
         
@@ -266,7 +266,7 @@ extension ChatVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                     let path = "\(self.senderId)/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\(photoReferenceUrl.lastPathComponent)"
                     
                     // 6
-                    self.storageRef.child(path).putFile(imageFileURL!, metadata: nil) { (metadata, error) in
+                    self.storageRef.child(path).putFile(from: imageFileURL!, metadata: nil) { (metadata, error) in
                         if let error = error {
                             print("Error uploading photo: \(error.localizedDescription)")
                             return

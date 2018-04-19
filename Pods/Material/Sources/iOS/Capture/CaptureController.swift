@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +52,7 @@ extension UIViewController {
 open class CaptureController: ToolbarController {
     /// A reference to the Capture instance.
     @IBInspectable
-    open fileprivate(set) var capture = Capture()
+    open let capture = Capture()
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
@@ -71,27 +71,29 @@ open class CaptureController: ToolbarController {
      */
     open override func prepare() {
         super.prepare()
-        display = .full
+        toolbarDisplay = .full
         view.backgroundColor = .black
         
         prepareStatusBar()
         prepareToolbar()
         prepareCapture()
     }
-    
+}
+
+extension CaptureController {
     /// Prepares the statusBar.
-    private func prepareStatusBar() {
+    fileprivate func prepareStatusBar() {
         statusBar.backgroundColor = .clear
     }
     
     /// Prepares the toolbar.
-    private func prepareToolbar() {
+    fileprivate func prepareToolbar() {
         toolbar.backgroundColor = .clear
         toolbar.depthPreset = .none
     }
     
     /// Prepares capture.
-    private func prepareCapture() {
+    fileprivate func prepareCapture() {
         capture.delegate = self
         capture.flashMode = .auto
     }

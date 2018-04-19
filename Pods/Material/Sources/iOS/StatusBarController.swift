@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,18 +49,44 @@ extension UIViewController {
 }
 
 open class StatusBarController: RootController {
-	/// A reference to the statusBar.
-    open fileprivate(set) var statusBar = UIView()
-	
-    /// A boolean that indicates to hide the statusBar on rotation.
-    open var shouldHideStatusBarOnRotation = true
-    
-    open override var isStatusBarHidden: Bool {
+    /**
+     A Display value to indicate whether or not to
+     display the rootViewController to the full view
+     bounds, or up to the toolbar height.
+     */
+    open var statusBarDisplay = Display.full {
         didSet {
+            layoutSubviews()
+        }
+    }
+    
+    /// Device status bar style.
+    open var statusBarStyle: UIStatusBarStyle {
+        get {
+            return Application.statusBarStyle
+        }
+        set(value) {
+            Application.statusBarStyle = value
+        }
+    }
+    
+    /// Device visibility state.
+    open var isStatusBarHidden: Bool {
+        get {
+            return Application.isStatusBarHidden
+        }
+        set(value) {
+            Application.isStatusBarHidden = value
             statusBar.isHidden = isStatusBarHidden
         }
     }
     
+    /// A boolean that indicates to hide the statusBar on rotation.
+    open var shouldHideStatusBarOnRotation = true
+    
+    /// A reference to the statusBar.
+    open let statusBar = UIView()
+	
 	/**
      To execute in the order of the layout chain, override this
      method. LayoutSubviews should be called immediately, unless you
@@ -73,7 +99,15 @@ open class StatusBarController: RootController {
         }
         
         statusBar.width = view.width
-        rootViewController.view.frame = view.bounds
+        
+        switch statusBarDisplay {
+        case .partial:
+            let h = statusBar.height
+            rootViewController.view.y = h
+            rootViewController.view.height = view.height - h
+        case .full:
+            rootViewController.view.frame = view.bounds
+        }
 	}
 	
 	/**
@@ -87,11 +121,13 @@ open class StatusBarController: RootController {
         super.prepare()
 		prepareStatusBar()
 	}
-	
-	/// Prepares the statusBar.
-	private func prepareStatusBar() {
-		statusBar.backgroundColor = .white
+}
+
+extension StatusBarController {
+    /// Prepares the statusBar.
+    fileprivate func prepareStatusBar() {
+        statusBar.backgroundColor = .white
         statusBar.height = 20
-		view.addSubview(statusBar)
-	}
+        view.addSubview(statusBar)
+    }
 }
